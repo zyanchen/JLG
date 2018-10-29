@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>购物车</title>
+		<link rel="shortcut icon" href="../img/title.ico"/>
+		<link rel="stylesheet" type="text/css" href="../css/cart.css"/>
+		<script src="../js/jquery-1.12.0.js"></script>
+		<script src="../js/jquery.cookie.js"></script>
+		<script src="../js/cart.js"></script>
+	</head>
+	<body>
+		<div id="top">
+			<div id="top_left">
+				<img src="../img/ind-tel.png" />
+				<span>电话热线<b>400-630-0077</b></span>
+			</div>
+			<div id="top_center">
+				<a href="entry.html?cart">[登录]</a>
+				<a href="register.html">[免费注册]</a>
+			</div>
+		<ul id="top_right">
+				<a href="#"><li>我的嘉</li></a>
+				<a href="#"><li>我的订单</li></a>
+				<a href="#"><li>客户服务</li></a>
+				<a href="#"><li>电视会员激活</li></a>
+				<a href="#"><li>
+					<img src="../img/ind-mobile.png" />
+					<span>手机嘉丽购</span>
+				</li></a>
+			</ul>
+		</div>
+		<div id="logo">
+			<div id="logo_left">
+				<a href="index.html"><img src="../img/ladygood.png" /></a>
+			</div>
+			<div id="logo_center">购物车</div>
+			<div id="logo_right">
+				<ul>
+					<li>
+						<span style="background: #e81355;"></span>
+						<div></div>
+						<label>我的购物车</label>
+					</li>
+					<li>
+						<span></span>
+						<div></div>
+						<label>提交订单</label>
+					</li>
+					<li>
+						<span></span>
+						<div></div>
+						<label>等待付款</label>
+					</li>
+					<li>
+						<span></span>
+						<div></div>
+						<label>支付成功</label>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div id="cart">
+			<div class="cart_top">
+				<span>全部商品</span>
+				<a href="index.html">返回首页</a>
+			</div>
+			<div class="cart_no">
+				购物车还是空的^_^
+			</div>
+			<div class="cart_yes">
+				<table>
+					<thead>
+						<tr>
+							<th>全选</th>
+							<th>商品名</th>
+							<th>单价（元）</th>
+							<th>数量</th>
+							<th>嘉丽价</th>
+							<th>操作</th>
+						</tr>
+					</thead>
+					<tbody></tbody>
+				</table>
+				<div class="cart_yes_settlement">
+					<div class="settlement_left">
+						<span>
+							<input type="checkbox" style="outline: none;" id="checked"/>
+							<label for="checked" style="margin-left: -5px;">全选</label>
+						</span>
+						<span class="delGoods">删除选中的商品</span>
+						<span class="delCart">清空购物车</span>
+					</div>
+					<div class="settlement_center">
+						<p>商品金额：<span class="jinE"></span>元</p>
+						<p>运费：<span class="yunFei">0.00</span>元</p>
+						<p>可返积分：<span class="jiFen"></span></p>
+						<p style="color: #e21357; font-weight: bold;">总计：<span class="zje"></span>元</p>
+					</div>
+					<div class="settlement_right">
+						<input type="button" value="去结算"/>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="GYLike">
+			<span>猜你喜欢</span>
+			<div class="GYLike_all"></div>
+		</div>
+		<div id="service">
+			<div class="service_top"></div>
+			<div class="service_bottom">
+				<div class="QRCode"></div>
+				<div class="service_list">
+					<dl>
+						<dt>购物指南</dt>
+						<a href="#"><dd>新用户注册/激活</dd></a>
+						<a href="#"><dd>如何订购</dd></a>
+						<a href="#"><dd>常见问题</dd></a>
+					</dl>
+					<dl>
+						<dt>会员中心</dt>
+						<a href="#"><dd>会员权益</dd></a>
+						<a href="#"><dd>美丽积分</dd></a>
+						<a href="#"><dd>订单查询</dd></a>
+						<a href="#"><dd>找回密码</dd></a>
+					</dl>
+					<dl>
+						<dt>配送服务</dt>
+						<a href="#"><dd>物流跟踪</dd></a>
+						<a href="#"><dd>免运费政策</dd></a>
+					</dl>
+					<dl>
+						<dt>支付说明</dt>
+						<a href="#"><dd>货到付款</dd></a>
+						<a href="#"><dd>在线支付</dd></a>
+					</dl>
+					<dl>
+						<dt>售后服务</dt>
+						<a href="#"><dd>退换货政策</dd></a>
+						<a href="#"><dd>退换货流程</dd></a>
+						<a href="#"><dd>安全与保密</dd></a>
+					</dl>
+				</div>
+				<div class="telephone"></div>
+			</div>
+		</div>
+		<div id="bottom">
+			<ul class="bottom_link">
+				<li><a href="#">商城首页</a></li>
+				<li><a href="#">官网首页</a></li>
+				<li><a href="#">供应商登录</a></li>
+				<li><a href="#">供货联系</a></li>
+				<li><a href="#">收藏我们</a></li>
+				<li><a href="#">公司简介</a></li>
+				<li><a href="#">媒体报道</a></li>
+				<li><a href="#">嘉丽购招聘</a></li>
+				<li><a href="#">官方微博</a></li>
+				<li style="border-right: none;"><a href="#">合作网站：范游网</a></li>
+			</ul>
+			<p>嘉丽购物有限责任公司 Copyright 2010-2014 jialigou.All Rights Reserved</p>
+			<p>国家广电总局批号：广局[2010] 278号湘ICP备10203162号-3</p>
+			<a href="#"><img src="../img/pic.gif" title="站长统计" class="pic"/></a>
+			<ul class="bottom_security">
+				<li class="first"><img src="../img/kx.jpg" /></li>
+				<li><a href="#"><img src="../img/360.jpg" /></a></li>
+				<li><img src="../img/alipay_s.gif"/></li>
+				<li><a href="#"><img src="../img/hn110_s.gif" /></a></li>
+			</ul>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>嘉丽购</title>
+		<link rel="shortcut icon" href="../img/title.ico"/>
+		<link rel="stylesheet" type="text/css" href="../css/index.css"/>
+		<script src="../js/jquery-1.12.0.js"></script>
+		<script src="../js/jquery.cookie.js"></script>
+		<script src="../js/index.js"></script>
+	</head>
+	<body>
+		<div id="top">
+			<div id="top_left">
+				<img src="../img/ind-tel.png" />
+				<span>电话热线<b>400-630-0077</b></span>
+			</div>
+			<div id="top_center">
+				<a href="entry.html?index">[登录]</a>
+				<a href="register.html">[免费注册]</a>
+			</div>
+		<ul id="top_right">
+				<a href="#"><li>我的嘉</li></a>
+				<a href="#"><li>我的订单</li></a>
+				<a href="#"><li>客户服务</li></a>
+				<a href="#"><li>电视会员激活</li></a>
+				<a href="#"><li>
+					<img src="../img/ind-mobile.png" />
+					<span>手机嘉丽购</span>
+				</li></a>
+			</ul>
+		</div>
+		<div id="logo">
+			<div id="logo_left">
+				<img src="../img/ladygood.png" />
+			</div>
+			<div id="logo_center">
+				<input type="text" placeholder="输入商品名称或电视商品编号"/>
+				<span id="search">
+					<i></i>
+					<span>搜索</span>
+				</span>
+			</div>
+			<div id="logo_right">
+				<span class="red">0</span>
+				<span class="span2">我的购物车</span>
+			</div>
+		</div>
+		<div id="nav">
+			<div id="nav_left">全部商品分类</div>
+			<ul id="nav_center">
+				<li>
+					<span style="color: #e91456;"><a href="index.html">首页</a></span>
+					<i>|</i>
+				</li>
+				<li>
+					<span><a href="http://www.jialigou.com/tv/live.html">TV直播</a></span>
+					<i>|</i>
+				</li>
+				<li>
+					<span><a href="http://www.jialigou.com/topic/topic/topic_id/8">嘉丽全球购</a></span>
+					<i>|</i>
+				</li>
+				<li>
+					<span><a href="http://www.jialigou.com/jhx/index.html">水果生鲜</a></span>
+					<i>|</i>
+				</li>
+			</ul>
+			<div id="nav_right">
+				<span>订购热线</span>
+				<span style="color: #e91456;">400-630-0077</span>
+			</div>
+		</div>
+		<div id="bigImg">
+			<div id="bigImg_img">
+				<div id="mask"></div>
+			</div>
+			<div id="bigImg_icon"></div>
+			<ul id="bigImg_left">
+				<div>
+					<p>
+						<a href="#">TV直播&nbsp;</a>
+						<a href="#">水果生鲜</a>
+					</p>
+					<span>
+						<a href="#">最新上架&nbsp;</a>
+						<a href="#">热销排行</a>
+					</span>
+				</div>
+				<li>
+					<a href="#">护肤 美妆</a>
+				</li>
+				<li>
+					<a href="#">服装 箱包</a>
+				</li>
+				<li>
+					<a href="#">饰品 礼品</a>
+				</li>
+				<li>
+					<a href="#">家居 日用</a>
+				</li>
+				<li>
+					<a href="#">家电 数码</a>
+				</li>
+				<li>
+					<a href="#">酒水 保健</a>
+				</li>
+			</ul>
+			<div id="bigImg_list">
+				<div class="list1">
+					<dl>
+						<a href="#"><dt>面部护理</dt></a>
+						<span>&gt;</span>
+						<a href="#"><dd>洁面乳</dd></a>
+						<a href="#"><dd>爽肤水</dd></a>
+						<a href="#"><dd>精华露</dd></a>
+						<a href="#"><dd>乳液/面霜</dd></a>
+						<a href="#"><dd>眼部护理</dd></a>
+						<a href="#"><dd>护肤套组</dd></a>
+						<a href="#"><dd>男士专区</dd></a>
+						<a href="#"><dd>面膜</dd></a>
+					</dl>
+					<dl>
+						<a href="#"><dt>全身护理</dt></a>
+						<span>&gt;</span>
+						<a href="#"><dd>洗发护发</dd></a>
+						<a href="#"><dd>染发造型</dd></a>
+						<a href="#"><dd>沐浴</dd></a>
+						<a href="#"><dd>洗护套餐</dd></a>
+						<a href="#"><dd>脱毛</dd></a>
+						<a href="#"><dd>身体乳</dd></a>
+					</dl>
+					<dl>
+						<a href="#"><dt>女性护理</dt></a>
+						<span>&gt;</span>
+						<a href="#"><dd>洗液</dd></a>
+					</dl>
+					<dl>
+						<a href="#"><dt>美容工具</dt></a>
+						<span>&gt;</span>
+						<a href="#"><dd>剃须刀</dd></a>
+						<a href="#"><dd>脱毛器</dd></a>
+						<a href="#"><dd>掏耳器</dd></a>
+						<a href="#"><dd>湿巾</dd></a>
+					</dl>
+					<dl>
+						<a href="#"><dt>化妆用品</dt></a>
+						<span>&gt;</span>
+						<a href="#"><dd>防晒隔离</dd></a>
+						<a href="#"><dd>BB霜</dd></a>
+						<a href="#"><dd>香水</dd></a>
+						<a href="#"><dd>彩妆套餐</dd></a>
+						<a href="#"><dd>美容美发</dd></a>
+						<a href="#"><dd>卸妆用品</dd></a>
+						<a href="#"><dd>睫毛膏</dd></a>
+						<a href="#"><dd>粉底散粉</dd></a>
+						<a href="#"><dd>皂</dd></a>
+					</dl>
+				</div>
+				<div class="list2">
+					<dl>
+						<a href="#"><dt>内衣</dt></a>
+						<span>&gt;</span>
+						<a href="#"><dd>文胸</dd></a>
+						<a href="#"><dd>塑身</dd></a>
+						<a href="#"><dd>睡衣</dd></a>
+						<a href="#"><dd>家居服</dd></a>
+						<a href="#"><dd>袜子</dd></a>
+						<a href="#"><dd>套装</dd></a>
+						<a href="#"><dd>内裤</dd></a>
+					</dl>
+					<dl>
+						<a href="#"><dt>女装</dt></a>
+						<span>&gt;</span>
+						<a href="#"><dd>衬衫</dd></a>
+						<a href="#"><dd>T恤</dd></a>
+						<a href="#"><dd>针织</dd></a>
+						<a href="#"><dd>外套</dd></a>
+						<a href="#"><dd>羽绒服</dd></a>
+						<a href="#"><dd>裙子</dd></a>
+						<a href="#"><dd>女裤</dd></a>
+					</dl>
+					<dl>
+						<a href="#"><dt>男装</dt></a>
+						<span>&gt;</span>
+						<a href="#"><dd>衬衫</dd></a>
+						<a href="#"><dd>T恤</dd></a>
+						<a href="#"><dd>针织</dd></a>
+						<a href="#"><dd>外套</dd></a>
+						<a href="#"><dd>羽绒服</dd></a>
+						<a href="#"><dd>男裤</dd></a>
+					</dl>
+					<dl>
+						<a href="#"><dt>配饰</dt></a>
+						<span>&gt;</span>
+						<a href="#"><dd>眼镜</dd></a>
+						<a href="#"><dd>围巾</dd></a>
+						<a href="#"><dd>衣着配饰</dd></a>
+						<a href="#"><dd>皮带</dd></a>
+					</dl>
+					<dl>
+						<a href="#"><dt>男鞋</dt></a>
+						<span>&gt;</span>
+						<a href="#"><dd>皮鞋</dd></a>
+						<a href="#"><dd>休闲鞋</dd></a>
+						<a href="#"><dd>凉鞋/沙滩鞋</dd></a>
+					</dl>
+					<dl>
+						<a href="#"><dt>女鞋</dt></a>
+						<span>&gt;</span>
+						<a href="#"><dd>单鞋</dd></a>
+						<a href="#"><dd>休闲鞋</dd></a>
+						<a href="#"><dd>靴子</dd></a>
+					</dl>
+					<dl>
+						<a href="#"><dt>潮流包</dt></a>
+						<span>&gt;</span>
+						<a href="#"><dd>手拿包</dd></a>
+						<a href="#"><dd>单肩包</dd></a>
+						<a href="#"><dd>双肩包</dd></a>
+						<a href="#"><dd>手提包</dd></a>
+						<a href="#"><dd>斜挎包</dd></a>
+						<a href="#"><dd>套组</dd></a>
+					</dl>
+					<dl>
+						<a href="#"><dt>功能箱包</dt></a>
+						<span>&gt;</span>
+						<a href="#"><dd>拉杆箱</dd></a>
+						<a href="#"><dd>钱包</dd></a>
+					</dl>
+					<dl>
+						<a href="#"><dt>流行手表</dt></a>
+						<span>&gt;</span>
+					</dl>
+					<dl>
+						<a href="#"><dt>运动服</dt></a>
+						<span>&gt;</span>
+					</dl>
+				</div>
+				<div class="list3">
+					<dl>
+						<a href="#"><dt>项链吊坠</dt></a>
+						<span>&gt;</span>
+					</dl>
+					<dl>
+						<a href="#"><dt>戒指</dt></a>
+						<span>&gt;</span>
+					</dl>
+					<dl>
+						<a href="#"><dt>耳环</dt></a>
+						<span>&gt;</span>
+					</dl>
+					<dl>
+						<a href="#"><dt>耳环</dt></a>
+						<span>&gt;</span>
+					</dl>
+					<dl>
+						<a href="#"><dt>套组</dt></a>
+						<span>&gt;</span>
+					</dl>
+					<dl>
+						<a href="#"><dt>工艺品</dt></a>
+						<span>&gt;</span>
+					</dl>
+					<dl>
+						<a href="#"><dt>发夹</dt></a>
+						<span>&gt;</span>
+					</dl>
+					<dl>
+						<a href="#"><dt>胸针</dt></a>
+						<span>&gt;</span>
+					</dl>
+					<dl>
+						<a href="#"><dt>钥匙扣</dt></a>
+						<span>&gt;</span>
+					</dl>
+				</div>
+				<div class="list4">
+					<dl>
+						<a href="#"><dt>家纺</dt></a>
+						<span>&gt;</span>
+						<a href="#"><dd>床品件套</dd></a>
+						<a href="#"><dd>被子/枕芯 </dd></a>
+						<a href="#"><dd>凉席</dd></a>
+						<a href="#"><dd>电热毯</dd></a>
+					</dl>
+					<dl>
+						<a href="#"><dt>生活日用</dt></a>
+						<span>&gt;</span>
+						<a href="#"><dd>晒衣架</dd></a>
+						<a href="#"><dd>收纳用品 </dd></a>
+						<a href="#"><dd>清洁用品</dd></a>
+						<a href="#"><dd>安全套</dd></a>
+						<a href="#"><dd>雨伞</dd></a>
+						<a href="#"><dd>杯子</dd></a>
+					</dl>
+					<dl>
+						<a href="#"><dt>厨房日用</dt></a>
+						<span>&gt;</span>
+						<a href="#"><dd>锅具</dd></a>
+						<a href="#"><dd>餐具 </dd></a>
+						<a href="#"><dd>刀具</dd></a>
+					</dl>
+					<dl>
+						<a href="#"><dt>家居生活</dt></a>
+						<span>&gt;</span>
+						<a href="#"><dd>礼品</dd></a>
+						<a href="#"><dd>麻将机 </dd></a>
+						<a href="#"><dd>空气床</dd></a>
+						<a href="#"><dd>母婴用品</dd></a>
+					</dl>
+				</div>
+				<div class="list5">
+					<dl>
+						<a href="#"><dt>电脑整机</dt></a>
+						<span>&gt;</span>
+						<a href="#"><dd>台式</dd></a>
+						<a href="#"><dd>笔记本</dd></a>
+						<a href="#"><dd>平板电脑</dd></a>
+					</dl>
+					<dl>
+						<a href="#"><dt>手机</dt></a>
+						<span>&gt;</span>
+					</dl>
+					<dl>
+						<a href="#"><dt>数码摄像</dt></a>
+						<span>&gt;</span>
+						<a href="#"><dd>数码相机</dd></a>
+						<a href="#"><dd>单反相机</dd></a>
+						<a href="#"><dd>数码摄像机</dd></a>
+						<a href="#"><dd>导航仪</dd></a>
+					</dl>
+					<dl>
+						<a href="#"><dt>家电</dt></a>
+						<span>&gt;</span>
+						<a href="#"><dd>空调</dd></a>
+						<a href="#"><dd>平板电视</dd></a>
+						<a href="#"><dd>冰箱</dd></a>
+						<a href="#"><dd>洗衣机</dd></a>
+						<a href="#"><dd>烟机/灶具</dd></a>
+					</dl>
+					<dl>
+						<a href="#"><dt>家居电器</dt></a>
+						<span>&gt;</span>
+						<a href="#"><dd>取暖器</dd></a>
+						<a href="#"><dd>电风扇</dd></a>
+						<a href="#"><dd>吸尘器</dd></a>
+						<a href="#"><dd>挂烫机</dd></a>
+						<a href="#"><dd>干衣机</dd></a>
+						<a href="#"><dd>吹风机</dd></a>
+						<a href="#"><dd>饮水机</dd></a>
+						<a href="#"><dd>空调扇</dd></a>
+						<a href="#"><dd>清洁机</dd></a>
+						<a href="#"><dd>足浴器</dd></a>
+					</dl>
+					<dl>
+						<a href="#"><dt>厨房电器</dt></a>
+						<span>&gt;</span>
+						<a href="#"><dd>料理/榨汁</dd></a>
+						<a href="#"><dd>豆浆机</dd></a>
+						<a href="#"><dd>电饭煲</dd></a>
+						<a href="#"><dd>电压力锅</dd></a>
+						<a href="#"><dd>微波炉</dd></a>
+						<a href="#"><dd>电磁炉</dd></a>
+						<a href="#"><dd>电水壶</dd></a>
+						<a href="#"><dd>电热锅</dd></a>
+						<a href="#"><dd>烤箱</dd></a>
+					</dl>
+					<dl>
+						<a href="#"><dt>五金电器</dt></a>
+						<span>&gt;</span>
+						<a href="#"><dd>水槽</dd></a>
+						<a href="#"><dd>水龙头</dd></a>
+						<a href="#"><dd>灯具</dd></a>
+					</dl>
+				</div>
+				<div class="list6">
+					<dl>
+						<a href="#"><dt>健身器材</dt></a>
+						<span>&gt;</span>
+						<a href="#"><dd>跑步机</dd></a>
+						<a href="#"><dd>按摩器材</dd></a>
+						<a href="#"><dd>健身机</dd></a>
+						<a href="#"><dd>球类器械</dd></a>
+					</dl>
+					<dl>
+						<a href="#"><dt>营养保健</dt></a>
+						<span>&gt;</span>
+						<a href="#"><dd>保健品</dd></a>
+						<a href="#"><dd>干果/零食</dd></a>
+						<a href="#"><dd>酒水</dd></a>
+					</dl>
+					<dl>
+						<a href="#"><dt>婴童用品</dt></a>
+						<span>&gt;</span>
+						<a href="#"><dd>奶粉</dd></a>
+						<a href="#"><dd>寝具服饰</dd></a>
+						<a href="#"><dd>喂哺用品</dd></a>
+						<a href="#"><dd>玩具乐器</dd></a>
+						<a href="#"><dd>妈妈专区</dd></a>
+						<a href="#"><dd>营养辅食</dd></a>
+						<a href="#"><dd>尿裤湿巾</dd></a>
+						<a href="#"><dd>洗护用品</dd></a>
+						<a href="#"><dd>童车童床</dd></a>
+					</dl>
+					<dl>
+						<a href="#"><dt>保险</dt></a>
+						<span>&gt;</span>
+					</dl>
+					<dl>
+						<a href="#"><dt>旅游</dt></a>
+						<span>&gt;</span>
+						<a href="#"><dd>国内旅游</dd></a>
+						<a href="#"><dd>国外旅游</dd></a>
+					</dl>
+					<dl>
+						<a href="#"><dt>票务</dt></a>
+						<span>&gt;</span>
+					</dl>
+					<dl>
+						<a href="#"><dt>减肥产品</dt></a>
+						<span>&gt;</span>
+					</dl>
+					<dl>
+						<a href="#"><dt>汽车</dt></a>
+						<span>&gt;</span>
+					</dl>
+				</div>
+			</div>
+			<div id="bigImg_right">
+				<h3>正在直播</h3>
+				<div>嘉书</div>
+			</div>
+		</div>
+		<div id="hit">
+			<div class="hit_date">
+				<span style="color: #e91456;">今日热播</span>
+				<span>昨日热播</span>
+			</div>
+			<div id="hit_goods_today"></div>
+			<div id="hit_goods_yestoday" style="display: none;"></div>
+		</div>
+		<div id="recommend">
+			<p class="recommend_title">热销推荐</p>
+			<div id="recommend_goods"></div>
+		</div>
+		<div id="F1" name="Floor">
+			<p class="F_title">
+				<img src="../img/floor1.png" />
+				<a href="#">服装鞋帽</a>
+			</p>
+			<div class="F_left">
+				<div class="F_left_left">
+					<ul>
+						<a href="#"><li>连衣裙</li></a>
+						<a href="#"><li>内衣</li></a>
+						<a href="#"><li>男士衬衫</li></a>
+						<a href="#"><li>男士T恤</li></a>
+						<a href="#"><li>男裤</li></a>
+						<a href="#"><li>时尚女包</li></a>
+						<a href="#"><li>男鞋</li></a>
+						<a href="#"><li>手表</li></a>
+						<a href="#"><li>手链手镯</li></a>
+					</ul>
+				</div>
+				<div class="F_left_right"></div>
+			</div>
+			<ul class="F_right"></ul>
+		</div>
+		<div id="F2" name="Floor">
+			<p class="F_title">
+				<img src="../img/floor2.png" />
+				<a href="#">个护美妆</a>
+			</p>
+			<div class="F_left">
+				<div class="F_left_left">
+					<ul>
+						<a href="#"><li>面膜</li></a>
+						<a href="#"><li>染发造型</li></a>
+						<a href="#"><li>BB霜</li></a>
+						<a href="#"><li>香水</li></a>
+						<a href="#"><li>皂</li></a>
+						<a href="#"><li>乳液面霜</li></a>
+						<a href="#"><li>眼部护理</li></a>
+					</ul>
+				</div>
+				<div class="F_left_right"></div>
+			</div>
+			<ul class="F_right"></ul>
+		</div>
+		<div id="BannerAds"></div>
+		<div id="F3" name="Floor">
+			<p class="F_title">
+				<img src="../img/floor3.png" />
+				<a href="#">食品酒水</a>
+				<a href="#">运动保健</a>
+			</p>
+			<div class="F_left">
+				<div class="F_left_left">
+					<ul>
+						<a href="#"><li>水果</li></a>
+						<a href="#"><li>跑步机</li></a>
+						<a href="#"><li>按摩器材</li></a>
+						<a href="#"><li>健身机</li></a>
+						<a href="#"><li>保健品</li></a>
+						<a href="#"><li>干果/零食</li></a>
+						<a href="#"><li>酒水</li></a>
+						<a href="#"><li>水果</li></a>
+						<a href="#"><li>大闸蟹</li></a>
+					</ul>
+				</div>
+				<div class="F_left_right"></div>
+			</div>
+			<ul class="F_right"></ul>
+		</div>
+		<div id="F4" name="Floor">
+			<p class="F_title">
+				<img src="../img/floor4.png" />
+				<a href="#">家居日用</a>
+				<a href="#">家用电器</a>
+			</p>
+			<div class="F_left">
+				<div class="F_left_left">
+					<ul>
+						<a href="#"><li>床品套件</li></a>
+						<a href="#"><li>凉席</li></a>
+						<a href="#"><li>清洁用品</li></a>
+						<a href="#"><li>锅具</li></a>
+						<a href="#"><li>刀具</li></a>
+						<a href="#"><li>空调扇</li></a>
+						<a href="#"><li>料理/榨汁</li></a>
+						<a href="#"><li>电饭煲</li></a>
+						<a href="#"><li>电热锅</li></a>
+					</ul>
+				</div>
+				<div class="F_left_right"></div>
+			</div>
+			<ul class="F_right"></ul>
+		</div>
+		<div id="service">
+			<div class="service_top"></div>
+			<div class="service_bottom">
+				<div class="QRCode"></div>
+				<div class="service_list">
+					<dl>
+						<dt>购物指南</dt>
+						<a href="#"><dd>新用户注册/激活</dd></a>
+						<a href="#"><dd>如何订购</dd></a>
+						<a href="#"><dd>常见问题</dd></a>
+					</dl>
+					<dl>
+						<dt>会员中心</dt>
+						<a href="#"><dd>会员权益</dd></a>
+						<a href="#"><dd>美丽积分</dd></a>
+						<a href="#"><dd>订单查询</dd></a>
+						<a href="#"><dd>找回密码</dd></a>
+					</dl>
+					<dl>
+						<dt>配送服务</dt>
+						<a href="#"><dd>物流跟踪</dd></a>
+						<a href="#"><dd>免运费政策</dd></a>
+					</dl>
+					<dl>
+						<dt>支付说明</dt>
+						<a href="#"><dd>货到付款</dd></a>
+						<a href="#"><dd>在线支付</dd></a>
+					</dl>
+					<dl>
+						<dt>售后服务</dt>
+						<a href="#"><dd>退换货政策</dd></a>
+						<a href="#"><dd>退换货流程</dd></a>
+						<a href="#"><dd>安全与保密</dd></a>
+					</dl>
+				</div>
+				<div class="telephone"></div>
+			</div>
+		</div>
+		<div id="bottom">
+			<ul class="bottom_link">
+				<li><a href="#">商城首页</a></li>
+				<li><a href="#">官网首页</a></li>
+				<li><a href="#">供应商登录</a></li>
+				<li><a href="#">供货联系</a></li>
+				<li><a href="#">收藏我们</a></li>
+				<li><a href="#">公司简介</a></li>
+				<li><a href="#">媒体报道</a></li>
+				<li><a href="#">嘉丽购招聘</a></li>
+				<li><a href="#">官方微博</a></li>
+				<li style="border-right: none;"><a href="#">合作网站：范游网</a></li>
+			</ul>
+			<p>嘉丽购物有限责任公司 Copyright 2010-2014 jialigou.All Rights Reserved</p>
+			<p>国家广电总局批号：广局[2010] 278号湘ICP备10203162号-3</p>
+			<a href="#"><img src="../img/pic.gif" title="站长统计" class="pic"/></a>
+			<ul class="bottom_security">
+				<li class="first"><img src="../img/kx.jpg" /></li>
+				<li><a href="#"><img src="../img/360.jpg" /></a></li>
+				<li><img src="../img/alipay_s.gif"/></li>
+				<li><a href="#"><img src="../img/hn110_s.gif" /></a></li>
+			</ul>
+		</div>
+		<div id="footrAD">
+			<span class="colseAD">&times;</span>
+			<img src="../img/ad.png"/>
+		</div>
+		<div id="floor">
+			<table>
+				<tr>
+					<td>
+						<span>F1</span>
+						<span class="font">服饰</span>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<span>F2</span>
+						<span class="font">美妆</span>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<span>F3</span>
+						<span class="font">生活</span>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<span>F4</span>
+						<span class="font">家居</span>
+					</td>
+				</tr>
+				<tr>
+					<td class="top">Top</td>
+				</tr>
+			</table>
+		</div>
+	</body>
+</html>

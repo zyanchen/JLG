@@ -1,23 +1,24 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
 	<head>
 		<meta charset="UTF-8">
 		<title>商品详情</title>
-		<link rel="shortcut icon" href="../img/title.ico"/>
-		<link rel="stylesheet" type="text/css" href="../css/detail.css"/>
-		<script src="../js/jquery-1.12.0.js"></script>
-		<script src="../js/jquery.cookie.js"></script>
-		<script src="../js/detail.js"></script>
+		<link rel="shortcut icon" href="{% static '/img/title.ico' %}"/>
+		<link rel="stylesheet" type="text/css" href="{% static '/css/detail.css' %}"/>
+		<script src="{% static '/js/jquery-1.12.0.js' %}"></script>
+		<script src="{% static '/js/jquery.cookie.js' %}"></script>
+		<script src="{% static '/js/detail.js' %}"></script>
 	</head>
 	<body>
-		<div id="top">
+        <div id="top">
 			<div id="top_left">
-				<img src="../img/ind-tel.png" />
+				<img src="{% static '/img/ind-tel.png' %}">
 				<span>电话热线<b>400-630-0077</b></span>
 			</div>
 			<div id="top_center">
 				<a href="entry.html?index">[登录]</a>
-				<a href="register.html">[免费注册]</a>
+				<a href="{% url 'App:register' %}">[免费注册]</a>
 			</div>
 		<ul id="top_right">
 				<a href="#"><li>我的嘉</li></a>
@@ -25,17 +26,17 @@
 				<a href="#"><li>客户服务</li></a>
 				<a href="#"><li>电视会员激活</li></a>
 				<a href="#"><li>
-					<img src="../img/ind-mobile.png" />
+					<img src="{% static '/img/ind-mobile.png' %}">
 					<span>手机嘉丽购</span>
 				</li></a>
 			</ul>
 		</div>
 		<div id="logo">
 			<div id="logo_left">
-				<a href="index.html"><img src="../img/ladygood.png" /></a>
+				<a href="{% url 'App:index' %}"><img src="{% static '/img/ladygood.png' %}"></a>
 			</div>
 			<div id="logo_center">
-				<input type="text" placeholder="输入商品名称或电视商品编号"/>
+				<input type="text" placeholder="输入商品名称或电视商品编号">
 				<span id="search">
 					<i></i>
 					<span>搜索</span>
@@ -58,7 +59,7 @@
 			</ul>
 			<ul id="nav_center">
 				<li>
-					<span style="color: #e91456;"><a href="index.html">首页</a></span>
+					<span style="color: #e91456;"><a href="{% url 'App:index' %}">首页</a></span>
 					<i>|</i>
 				</li>
 				<li>
@@ -110,7 +111,7 @@
 					<div class="number">
 						<label>数量</label>
 						<div class="minus">-</div>
-						<input type="text" value="1"/>
+						<input type="text" value="1">
 						<div class="plus">+</div>
 						<span>件</span>
 					</div>
@@ -143,7 +144,7 @@
 				</div>
 				<div id="sell">
 					<p class="sell_p">热销排行</p>
-				</div>	
+				</div>
 			</div>
 			<div id="introduce">
 				<ul class="intr_top">
@@ -169,7 +170,7 @@
 					</li>
 				</ul>
 				<ul class="intr_bottom"></ul>
-			</div>	
+			</div>
 		</div>
 		<div id="service">
 			<div class="service_top"></div>
@@ -224,13 +225,13 @@
 			</ul>
 			<p>嘉丽购物有限责任公司 Copyright 2010-2014 jialigou.All Rights Reserved</p>
 			<p>国家广电总局批号：广局[2010] 278号湘ICP备10203162号-3</p>
-			<a href="#"><img src="../img/pic.gif" title="站长统计" class="pic"/></a>
+			<a href="#"><img src="{% static '/img/pic.gif' %}" title="站长统计" class="pic"></a>
 			<ul class="bottom_security">
-				<li class="first"><img src="../img/kx.jpg" /></li>
-				<li><a href="#"><img src="../img/360.jpg" /></a></li>
-				<li><img src="../img/alipay_s.gif"/></li>
-				<li><a href="#"><img src="../img/hn110_s.gif" /></a></li>
+				<li class="first"><img src="{% static '/img/kx.jpg' %}"></li>
+				<li><a href="#"><img src="{% static '/img/360.jpg' %}"></a></li>
+				<li><img src="{% static '/img/alipay_s.gif' %}"></li>
+				<li><a href="#"><img src="{% static '/img/hn110_s.gif' %}"></a></li>
 			</ul>
 		</div>
-	</body>
+    </body>
 </html>

@@ -1,23 +1,24 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
 	<head>
 		<meta charset="UTF-8">
 		<title>嘉丽购</title>
-		<link rel="shortcut icon" href="../img/title.ico"/>
-		<link rel="stylesheet" type="text/css" href="../css/index.css"/>
-		<script src="../js/jquery-1.12.0.js"></script>
-		<script src="../js/jquery.cookie.js"></script>
-		<script src="../js/index.js"></script>
+		<link rel="shortcut icon" href="{% static '/img/title.ico' %}"/>
+		<link rel="stylesheet" type="text/css" href="{% static '/css/index.css' %}"/>
+		<script src="{% static '/js/jquery-1.12.0.js' %}"></script>
+		<script src="{% static '/js/jquery.cookie.js' %}"></script>
+		<script src="{% static '/js/index.js' %}"></script>
 	</head>
 	<body>
-		<div id="top">
+        <div id="top">
 			<div id="top_left">
-				<img src="../img/ind-tel.png" />
+				<img src="{% static '/img/ind-tel.png' %}">
 				<span>电话热线<b>400-630-0077</b></span>
 			</div>
 			<div id="top_center">
-				<a href="entry.html?index">[登录]</a>
-				<a href="register.html">[免费注册]</a>
+				<a href="{% url 'App:entry' %}">[登录]</a>
+				<a href="{% url 'App:register' %}">[免费注册]</a>
 			</div>
 		<ul id="top_right">
 				<a href="#"><li>我的嘉</li></a>
@@ -25,17 +26,17 @@
 				<a href="#"><li>客户服务</li></a>
 				<a href="#"><li>电视会员激活</li></a>
 				<a href="#"><li>
-					<img src="../img/ind-mobile.png" />
+					<img src="{% static '/img/ind-mobile.png' %}">
 					<span>手机嘉丽购</span>
 				</li></a>
 			</ul>
 		</div>
 		<div id="logo">
 			<div id="logo_left">
-				<img src="../img/ladygood.png" />
+				<img src="{% static '/img/ladygood.png' %}">
 			</div>
 			<div id="logo_center">
-				<input type="text" placeholder="输入商品名称或电视商品编号"/>
+				<input type="text" placeholder="输入商品名称或电视商品编号">
 				<span id="search">
 					<i></i>
 					<span>搜索</span>
@@ -50,7 +51,7 @@
 			<div id="nav_left">全部商品分类</div>
 			<ul id="nav_center">
 				<li>
-					<span style="color: #e91456;"><a href="index.html">首页</a></span>
+					<span style="color: #e91456;"><a href="{% url 'App:index' %}">首页</a></span>
 					<i>|</i>
 				</li>
 				<li>
@@ -446,7 +447,7 @@
 		</div>
 		<div id="F1" name="Floor">
 			<p class="F_title">
-				<img src="../img/floor1.png" />
+				<img src="{% static '/img/floor1.png' %}">
 				<a href="#">服装鞋帽</a>
 			</p>
 			<div class="F_left">
@@ -469,7 +470,7 @@
 		</div>
 		<div id="F2" name="Floor">
 			<p class="F_title">
-				<img src="../img/floor2.png" />
+				<img src="{% static '/img/floor2.png' %}">
 				<a href="#">个护美妆</a>
 			</p>
 			<div class="F_left">
@@ -491,7 +492,7 @@
 		<div id="BannerAds"></div>
 		<div id="F3" name="Floor">
 			<p class="F_title">
-				<img src="../img/floor3.png" />
+				<img src="{% static '/img/floor3.png' %}">
 				<a href="#">食品酒水</a>
 				<a href="#">运动保健</a>
 			</p>
@@ -515,7 +516,7 @@
 		</div>
 		<div id="F4" name="Floor">
 			<p class="F_title">
-				<img src="../img/floor4.png" />
+				<img src="{% static '/img/floor4.png' %}">
 				<a href="#">家居日用</a>
 				<a href="#">家用电器</a>
 			</p>
@@ -590,21 +591,21 @@
 			</ul>
 			<p>嘉丽购物有限责任公司 Copyright 2010-2014 jialigou.All Rights Reserved</p>
 			<p>国家广电总局批号：广局[2010] 278号湘ICP备10203162号-3</p>
-			<a href="#"><img src="../img/pic.gif" title="站长统计" class="pic"/></a>
+			<a href="#"><img src="{% static '/img/pic.gif' %}" title="站长统计" class="pic"></a>
 			<ul class="bottom_security">
-				<li class="first"><img src="../img/kx.jpg" /></li>
-				<li><a href="#"><img src="../img/360.jpg" /></a></li>
-				<li><img src="../img/alipay_s.gif"/></li>
-				<li><a href="#"><img src="../img/hn110_s.gif" /></a></li>
+				<li class="first"><img src="{% static '/img/kx.jpg' %}"></li>
+				<li><a href="#"><img src="{% static '/img/360.jpg' %}"></a></li>
+				<li><img src="{% static '/img/alipay_s.gif' %}"></li>
+				<li><a href="#"><img src="{% static '/img/hn110_s.gif' %}"></a></li>
 			</ul>
 		</div>
 		<div id="footrAD">
-			<span class="colseAD">&times;</span>
-			<img src="../img/ad.png"/>
+			<span class="colseAD">×</span>
+			<img src="{% static '/img/ad.png' %}">
 		</div>
 		<div id="floor">
 			<table>
-				<tr>
+				<tbody><tr>
 					<td>
 						<span>F1</span>
 						<span class="font">服饰</span>
@@ -631,7 +632,7 @@
 				<tr>
 					<td class="top">Top</td>
 				</tr>
-			</table>
+			</tbody></table>
 		</div>
-	</body>
+    </body>
 </html>

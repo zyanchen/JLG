@@ -1,18 +1,19 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
 	<head>
 		<meta charset="UTF-8">
 		<title>用户登录</title>
-		<link rel="shortcut icon" href="../img/title.ico"/>
-		<link rel="stylesheet" type="text/css" href="../css/entry.css"/>
-		<script src="../js/jquery-1.12.0.js"></script>
-		<script src="../js/jquery.cookie.js"></script>
-		<script src="../js/entry.js"></script>
+		<link rel="shortcut icon" href="{% static '/img/title.ico' %}"/>
+		<link rel="stylesheet" type="text/css" href="{% static '/css/entry.css' %}"/>
+		<script src="{% static '/js/jquery-1.12.0.js' %}"></script>
+		<script src="{% static '/js/jquery.cookie.js' %}"></script>
+		<script src="{% static '/js/entry.js' %}"></script>
 	</head>
 	<body>
-		<div id="logo">
+        <div id="logo">
 			<div id="logo_left">
-				<a href="index.html"><img src="../img/ladygood.png" /></a>
+				<a href="{% url 'App:index' %}"><img src="{% static '/img/ladygood.png' %}"></a>
 			</div>
 			<div id="logo_center">用户登录</div>
 			<div id="logo_right">
@@ -21,31 +22,31 @@
 		</div>
 		<div id="entry">
 			<div class="entry_left">
-				<img src="../img/denglu.png"/>
+				<img src="{% static '/img/denglu.png' %}">
 			</div>
 			<div class="entry_right">
 				<p class="entry_right_title">
 					<span>嘉丽购会员登录</span>
-					<a href="register.html">免费注册</a>
+					<a href="{% url 'App:register' %}">免费注册</a>
 				</p>
 				<form>
-					<input type="text" placeholder="用户名/邮箱/电话号码" class="input1" />
-					<input type="password" placeholder="密码" class="input1" />
+					<input type="text" placeholder="用户名/邮箱/电话号码" class="input1">
+					<input type="password" placeholder="密码" class="input1">
 					<p class="clear">
-						<input type="text" placeholder="验证码" class="input2" />
-						<span class="verCode"></span>
+						<input type="text" placeholder="验证码" class="input2">
+						<span class="verCode">Oo3n</span>
 					</p>
 					<p>
-						<input type="checkbox" id="check"/>
+						<input type="checkbox" id="check">
 						<label for="check">自动登录</label>
 						<a href="#">找回密码</a>
 					</p>
-					<input type="submit" value="登录"/>
+					<input type="submit" value="登录">
 					<p class="tuijian_title">亲，没有账号，你可以选择以下快捷登录方式！</p>
 				</form>
 			</div>
 			<div class="entry_right_bottom">
-				<img src="../img/qq.png"/>
+				<img src="{% static '/img/qq.png' %}">
 			</div>
 		</div>
 		<div id="service">
@@ -101,13 +102,13 @@
 			</ul>
 			<p>嘉丽购物有限责任公司 Copyright 2010-2014 jialigou.All Rights Reserved</p>
 			<p>国家广电总局批号：广局[2010] 278号湘ICP备10203162号-3</p>
-			<a href="#"><img src="../img/pic.gif" title="站长统计" class="pic"/></a>
+			<a href="#"><img src="{% static '/img/pic.gif' %}" title="站长统计" class="pic"></a>
 			<ul class="bottom_security">
-				<li class="first"><img src="../img/kx.jpg" /></li>
-				<li><a href="#"><img src="../img/360.jpg" /></a></li>
-				<li><img src="../img/alipay_s.gif"/></li>
-				<li><a href="#"><img src="../img/hn110_s.gif" /></a></li>
+				<li class="first"><img src="{% static '/img/kx.jpg' %}"></li>
+				<li><a href="#"><img src="{% static '/img/360.jpg' %}"></a></li>
+				<li><img src="{% static '/img/alipay_s.gif' %}"></li>
+				<li><a href="#"><img src="{% static '/img/hn110_s.gif' %}"></a></li>
 			</ul>
 		</div>
-	</body>
+    </body>
 </html>

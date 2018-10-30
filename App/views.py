@@ -54,3 +54,4 @@ def register(request):
         response.set_cookie('username',username)
         return response
 
+

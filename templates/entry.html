@@ -8,7 +8,7 @@
 		<link rel="stylesheet" type="text/css" href="{% static '/css/entry.css' %}"/>
 		<script src="{% static '/js/jquery-1.12.0.js' %}"></script>
 		<script src="{% static '/js/jquery.cookie.js' %}"></script>
-		<script src="{% static '/js/entry.js' %}"></script>
+{#		<script src="{% static '/js/entry.js' %}"></script>#}
 	</head>
 	<body>
         <div id="logo">
@@ -29,9 +29,10 @@
 					<span>嘉丽购会员登录</span>
 					<a href="{% url 'App:register' %}">免费注册</a>
 				</p>
-				<form>
-					<input type="text" placeholder="用户名/邮箱/电话号码" class="input1">
-					<input type="password" placeholder="密码" class="input1">
+				<form method="post">
+                    {% csrf_token %}
+					<input type="text" placeholder="用户名/邮箱/电话号码" class="input1" name="username">
+					<input type="password" placeholder="密码" class="input1" name="password">
 					<p class="clear">
 						<input type="text" placeholder="验证码" class="input2">
 						<span class="verCode">Oo3n</span>

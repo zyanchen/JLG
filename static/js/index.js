@@ -50,7 +50,7 @@ $(function(){
 			}
 		}
 	});
-	$.get("../json/index.json",function(data){
+	$.get("/static/json/index.json",function(data){
 	//轮播图
 		var $bigImg_img = $("#bigImg_img");
 		var $bigImg_icon = $("#bigImg_icon");

@@ -8,7 +8,7 @@
 		<link rel="stylesheet" type="text/css" href="{% static '/css/register.css' %}"/>
 		<script src="{% static '/js/jquery-1.12.0.js' %}"></script>
 		<script src="{% static '/js/jquery.cookie.js' %}"></script>
-		<script src="{% static '/js/register.js' %}"></script>
+{#		<script src="{% static '/js/register.js' %}"></script>#}
 	</head>
 	<body>
         <div id="logo">
@@ -24,14 +24,15 @@
 		<div id="register">
 			<div class="register_left">
 				<p class="tishi"></p>
-				<form class="tel">
+				<form class="tel" method="post">
+                    {% csrf_token %}
 					<p>
 						<label>*用户名：</label>
-						<input type="text" placeholder="输入手机号">
+						<input type="text" placeholder="输入手机号" name="username">
 					</p>
 					<p>
 						<label>*设置密码：</label>
-						<input type="password" placeholder="创建密码">
+						<input type="password" placeholder="创建密码" name="password">
 					</p>
 					<p>
 						<label>*确认密码：</label>

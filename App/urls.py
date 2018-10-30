@@ -9,5 +9,4 @@ urlpatterns = [
     url(r'^logout/$', views.logout,name='logout'),
     url(r'^detail.html/$', views.detail,name='detail'),
     url(r'^register/$', views.register,name='register'),
-
 ]

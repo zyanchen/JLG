@@ -40,6 +40,7 @@ def logout(request):
     return response
 
 
+
 def register(request):
     if request.method == 'GET':
         return render(request,'register.html')

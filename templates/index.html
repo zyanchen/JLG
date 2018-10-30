@@ -19,7 +19,7 @@
 			</div>
 			<div id="top_center">
                 {% if username %}
-                    <span>您好,{{ username }}<a href="{% url 'App:logout' %}">[退出]</a></span>
+                    <span>您好,{{ username }} <a href="{% url 'App:logout' %}"> [退出]</a></span>
                 {% else %}
 				    <a href="{% url 'App:entry' %}">[登录]</a>
 				    <a href="{% url 'App:register' %}">[免费注册]</a>

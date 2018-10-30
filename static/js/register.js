@@ -134,7 +134,7 @@ $(function(){
 				$("form").find("input[type='password']").val(null);
 				console.log($.cookie("msg"));
 				alert("注册成功!");
-				location.href = "entry.html?index";
+				location.href = "/entry/";
 			}else{
 				alert("有信息不符合规范请重新输入");
 			}

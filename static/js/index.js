@@ -43,10 +43,10 @@ $(function(){
 	//进入购物车
 	$("#logo_right").click(function(){
 		if($entry.length!=0 || $entry2.length!=0){ //是否有用户登录
-			location.href = "cart.html";
+			location.href = "/cart/";
 		}else{
 			if(confirm("请登录!")){
-				location.href = "entry.html?cart";
+				location.href = "/entry/";
 			}
 		}
 	});

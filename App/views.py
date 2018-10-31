@@ -1,4 +1,5 @@
 import hashlib
+import json
 import random
 import time
 import uuid
@@ -7,7 +8,7 @@ from django.http import HttpResponse
 from django.shortcuts import render, redirect
 
 # Create your views here.
-from App.models import User
+from App.models import User, Index_Img
 
 
 def index(request):
@@ -83,6 +84,56 @@ def register(request):
         except Exception as e:
             return HttpResponse('注册失败')
 
+
+def getjson(request):
+    file = '/home/zhuyu/Desktop/JLG/static/json/index.json'
+    with open(file, 'r') as nb:
+        fileContent = nb.read()
+        res = json.loads(fileContent)
+    key_list = []
+    for key in res:
+        key_list.append(key)
+    for key,value in res.items():
+        for content in value:
+            if key == key_list[0]:
+                img = Index_Img()
+                img.use = key
+                img.num = content['title']
+                img.src = content['img']
+                img.save()
+            elif key == key_list[6]:
+                img = Index_Img()
+                img.use = key
+                img.num = content['id']
+                img.src = content['img']
+                img.describe = content['describe']
+                img.price = content['price']
+                img.salesVolume = content['salesVolume']
+                img.save()
+            elif key == key_list[2] or key == key_list[5] or key == key_list[7] or key == key_list[9] or key == key_list[11] or key == key_list[13] or key == key_list[15]:
+                img = Index_Img()
+                img.use = key
+                img.num = content['id']
+                img.src = content['img']
+                img.save()
+            elif key == key_list[8] or key == key_list[10] or key == key_list[12] or key == key_list[14]:
+                img = Index_Img()
+                img.use = key
+                img.num = content['id']
+                img.src = content['img']
+                img.describe = content['describe']
+                img.price = content['price']
+                img.save()
+            else:
+                img = Index_Img()
+                img.use = key
+                img.num = content['id']
+                img.src = content['img']
+                img.time = content['time']
+                img.describe = content['describe']
+                img.price = content['price']
+                img.save()
+    return HttpResponse('已获取数据')
 
 
 

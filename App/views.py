@@ -12,13 +12,17 @@ from App.models import User, Index_Img
 
 
 def index(request):
+    lunbo = Index_Img.objects.filter(use='lunbo')
+    lunbo_goods = Index_Img.objects.filter(use='lunbo_goods')
+    hit = Index_Img.objects.filter(use='hit')
+    hit_today = Index_Img.objects.filter(use='hit_today')
     token = request.COOKIES.get('token')
     users = User.objects.filter(token=token)
     if users.exists():
         user = users.first()
-        return render(request,'index.html',context={'username':user.username})
+        return render(request,'index.html',context={'username':user.username,'hit':hit,'hit_today':hit_today,'lunbo':lunbo})
     else:
-        return render(request,'index.html')
+        return render(request,'index.html',context={'hit':hit,"hit_today":hit_today,'lunbo':lunbo})
 
 
 def cart(request):
@@ -134,7 +138,5 @@ def getjson(request):
                 img.price = content['price']
                 img.save()
     return HttpResponse('已获取数据')
-
-
 
 

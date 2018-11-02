@@ -445,6 +445,13 @@
 			<div id="bigImg_right">
 				<h3>正在直播</h3>
 				<div>嘉书</div>
+                {% for lu in lunbo_goods %}
+                    <p class="time">{{ lu.time }}</p>
+                    <a href="{% url 'App:detail' %}"><img src="{{ lu.src }}" alt=""></a>
+                    <a href="#">{{ lu.describe }}</a>
+                    <h3>{{ lu.price }}</h3>
+                {% endfor %}
+                <p class="time"></p>
 			</div>
 		</div>
 		<div id="hit">
@@ -455,17 +462,18 @@
 			<div id="hit_goods_today">
                 <div class="hit_goods_high">
                     {% for h in hit %}
-                        <img src="{{ h.src }}" alt="" width="255" height="335">
+                        <img src="{{ h.src }}" alt="">
                     {% endfor %}
                 </div>
                 <div class="hit_list">
                     {% for h_t in hit_today %}
                         {% if h_t.num < '6' %}
                             <div class="hit_goods_directSeeding">
-                                <div class="hit_time"><span>{{ h_t.time }}<br></span></div>
-                                <img src="{{ h_t.src }}" alt="" width="255" height="260"><br>
-                                <a href="">{{ h_t.describe }}</a><br>
-                                <b>{{ h_t.price }}</b>
+                                <div class="hit_directSeeding">直播</div>
+                                <p class="hit_time">{{ h_t.time }}</p>
+                                <img src="{{ h_t.src }}" alt="">
+                                <a href="" class="describe">{{ h_t.describe }}</a>
+                                <p class="hit_price">{{ h_t.price }}</p>
                             </div>
                         {% endif %}
                     {% endfor %}
@@ -475,7 +483,22 @@
 		</div>
 		<div id="recommend">
 			<div><p class="recommend_title">热销推荐</p></div>
-			<div id="recommend_goods"></div>
+			<div id="recommend_goods">
+                <div class="recommend_goods_left">
+                    {% for foo in recommend %}
+                        <img src="{{ foo.src }}" alt="">
+                    {% endfor %}
+                </div>
+                {% for good in recommend_goods %}
+                    <div class="recommend_goods_details">
+                        <img src="{{ good.src }}" alt="">
+                        <a href="#" class="describe">{{ good.describe }}</a>
+                        <p class="recommend_price">{{ good.price }}</p>
+                        <p class="recommend_salesVolume">{{ good.salesVolume }}</p>
+                    </div>
+                {% endfor %}
+
+            </div>
 		</div>
 		<div id="F1" name="Floor">
 			<p class="F_title">
@@ -483,7 +506,7 @@
 				<a href="#">服装鞋帽</a>
 			</p>
 			<div class="F_left">
-				<div class="F_left_left">
+				    <div class="F_left_left">
 					<ul>
 						<a href="#"><li>连衣裙</li></a>
 						<a href="#"><li>内衣</li></a>
@@ -495,10 +518,25 @@
 						<a href="#"><li>手表</li></a>
 						<a href="#"><li>手链手镯</li></a>
 					</ul>
+                    <img src="{{ F1_left0.src }}" alt="">
 				</div>
-				<div class="F_left_right"></div>
+				<div class="F_left_right">
+                    <img src="{{ F1_left1.src }}" alt="">
+                </div>
+
+				
+                
 			</div>
-			<ul class="F_right"></ul>
+			<ul class="F_right">
+                {% for foo in F1_right %}
+                    <li>
+                        <img src="{{ foo.src }}" alt="">
+                        <a href="#" class="describe">{{ foo.describe }}</a>
+                        <p class="F_price">{{ foo.price }}</p>
+                    </li>
+                {% endfor %}
+
+            </ul>
 		</div>
 		<div id="F2" name="Floor">
 			<p class="F_title">
@@ -516,12 +554,25 @@
 						<a href="#"><li>乳液面霜</li></a>
 						<a href="#"><li>眼部护理</li></a>
 					</ul>
+                    <img src="{{ F2_left0.src }}" alt="">
 				</div>
-				<div class="F_left_right"></div>
+				<div class="F_left_right">
+                    <img src="{{ F2_left1.src }}" alt="">
+                </div>
 			</div>
-			<ul class="F_right"></ul>
+			<ul class="F_right">
+                {% for foo in F2_right %}
+                    <li>
+                        <img src="{{ foo.src }}" alt="">
+                        <a href="#" class="describe">{{ foo.describe }}</a>
+                        <p class="F_price">{{ foo.price }}</p>
+                    </li>
+                {% endfor %}
+            </ul>
 		</div>
-		<div id="BannerAds"></div>
+		<div id="BannerAds">
+            <img src="{{ bannerAds.src }}" alt="">
+        </div>
 		<div id="F3" name="Floor">
 			<p class="F_title">
 				<img src="{% static '/img/floor3.png' %}">
@@ -541,10 +592,21 @@
 						<a href="#"><li>水果</li></a>
 						<a href="#"><li>大闸蟹</li></a>
 					</ul>
+                    <img src="{{ F3_left0.src }}" alt="">
 				</div>
-				<div class="F_left_right"></div>
+				<div class="F_left_right">
+                    <img src="{{ F3_left1.src }}" alt="">
+                </div>
 			</div>
-			<ul class="F_right"></ul>
+			<ul class="F_right">
+                {% for foo in F3_right %}
+                    <li>
+                        <img src="{{ foo.src }}" alt="">
+                        <a href="#" class="describe">{{ foo.describe }}</a>
+                        <p class="F_price">{{ foo.price }}</p>
+                    </li>
+                {% endfor %}
+            </ul>
 		</div>
 		<div id="F4" name="Floor">
 			<p class="F_title">
@@ -565,10 +627,21 @@
 						<a href="#"><li>电饭煲</li></a>
 						<a href="#"><li>电热锅</li></a>
 					</ul>
+                    <img src="{{ F4_left0.src }}" alt="">
 				</div>
-				<div class="F_left_right"></div>
+				<div class="F_left_right">
+                    <img src="{{ F4_left1.src }}" alt="">
+                </div>
 			</div>
-			<ul class="F_right"></ul>
+			<ul class="F_right">
+                {% for foo in F4_right %}
+                    <li>
+                        <img src="{{ foo.src }}" alt="">
+                        <a href="#" class="describe">{{ foo.describe }}</a>
+                        <p class="F_price">{{ foo.price }}</p>
+                    </li>
+                {% endfor %}
+            </ul>
 		</div>
 		<div id="service">
 			<div class="service_top"></div>

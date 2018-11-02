@@ -12,17 +12,59 @@ from App.models import User, Index_Img
 
 
 def index(request):
-    lunbo = Index_Img.objects.filter(use='lunbo')
-    lunbo_goods = Index_Img.objects.filter(use='lunbo_goods')
+    lunbo = Index_Img.objects.filter(use='lunbo')   # 轮播图
+    lunbo_goods = Index_Img.objects.filter(use='lunbo_goods')   # 直播商品
+    # 今日热销
     hit = Index_Img.objects.filter(use='hit')
     hit_today = Index_Img.objects.filter(use='hit_today')
+    # 热销推荐
+    recommend = Index_Img.objects.filter(use='recommend')
+    recommend_goods = Index_Img.objects.filter(use='recommend_goods')
+    # F1图片
+    F1_left0 = Index_Img.objects.filter(use='F1_left')[0]
+    F1_left1 = Index_Img.objects.filter(use='F1_left')[1]
+    F1_right = Index_Img.objects.filter(use='F1_right')
+    # F2图片
+    F2_left0 = Index_Img.objects.filter(use='F2_left')[0]
+    F2_left1 = Index_Img.objects.filter(use='F2_left')[1]
+    F2_right = Index_Img.objects.filter(use='F2_right')
+    # F3图片
+    F3_left0 = Index_Img.objects.filter(use='F3_left')[0]
+    F3_left1 = Index_Img.objects.filter(use='F3_left')[1]
+    F3_right = Index_Img.objects.filter(use='F3_right')
+    # F4图片
+    F4_left0 = Index_Img.objects.filter(use='F4_left')[0]
+    F4_left1 = Index_Img.objects.filter(use='F4_left')[1]
+    F4_right = Index_Img.objects.filter(use='F4_right')
+    bannerAds = Index_Img.objects.filter(use='bannerAds')[0]
+    data = {
+        'lunbo': lunbo,
+        'lunbo_goods': lunbo_goods,
+        'hit': hit,
+        'hit_today': hit_today,
+        'recommend': recommend,
+        'recommend_goods': recommend_goods,
+        'F1_left0' : F1_left0,
+        'F1_left1' : F1_left1,
+        'F1_right' : F1_right,
+        'F2_left0' : F2_left0,
+        'F2_left1' : F2_left1,
+        'F2_right' : F2_right,
+        'F3_left0' : F3_left0,
+        'F3_left1' : F3_left1,
+        'F3_right' : F3_right,
+        'F4_left0' : F4_left0,
+        'F4_left1' : F4_left1,
+        'F4_right' : F4_right,
+        'bannerAds' : bannerAds,
+    }
     token = request.COOKIES.get('token')
     users = User.objects.filter(token=token)
     if users.exists():
         user = users.first()
-        return render(request,'index.html',context={'username':user.username,'hit':hit,'hit_today':hit_today,'lunbo':lunbo})
+        return render(request,'index.html',context=data)
     else:
-        return render(request,'index.html',context={'hit':hit,"hit_today":hit_today,'lunbo':lunbo})
+        return render(request,'index.html',context=data)
 
 
 def cart(request):
@@ -32,7 +74,7 @@ def cart(request):
 def detail(request):
     return render(request,'detail.html')
 
-
+# 登陆
 def entry(request):
     if request.method == 'GET':
         return render(request,'entry.html')
@@ -50,26 +92,26 @@ def entry(request):
         else:
             return HttpResponse('用户名或密码错误!')
 
-
+# 生成token
 def generate_token():
     token = str(time.time()) + str(random.random())
     md5 = hashlib.md5()
     md5.update(token.encode('utf-8'))
     return md5.hexdigest()
 
-
+# 生成加密密码
 def generate_password(password):
     sha = hashlib.sha512()
     sha.update(password.encode('utf-8'))
     return sha.hexdigest()
 
-
+# 退出
 def logout(request):
     response = redirect('App:index')
     response.delete_cookie('token')
     return response
 
-
+#
 def register(request):
     if request.method == 'GET':
         return render(request,'register.html')
@@ -88,7 +130,7 @@ def register(request):
         except Exception as e:
             return HttpResponse('注册失败')
 
-
+# 获取index_json数据
 def getjson(request):
     file = '/home/zhuyu/Desktop/JLG/static/json/index.json'
     with open(file, 'r') as nb:

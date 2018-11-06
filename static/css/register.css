@@ -11,6 +11,10 @@ a{
 	text-decoration: none;
 	color: inherit;
 }
+b{
+	font-size: 15px;
+	color: red;
+}
 body{
 	min-width: 1200px;
 }

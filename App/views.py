@@ -109,7 +109,8 @@ def entry(request):
             response.set_cookie('token', user.token)
             return response
         else:
-            return HttpResponse('用户名或密码错误!')
+            error = '用户名或密码错误!'
+            return render(request, 'entry.html',context={'error':error})
 
 # 生成token
 def generate_token():
@@ -143,7 +144,7 @@ def register(request):
             user.password = generate_password(password)
             user.token = uuid.uuid5(uuid.uuid4(),'register')
             user.save()
-            response = redirect('App:entry')
+            response = redirect('App:index')
             response.set_cookie('token',user.token)
             return response
         except Exception as e:

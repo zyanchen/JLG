@@ -33,19 +33,23 @@
 				</p>
 				<form method="post">
                     {% csrf_token %}
-					<input type="text" placeholder="用户名/邮箱/电话号码" class="input1" name="username">
+					<input type="text" placeholder="用户名/电话号码" class="input1" name="username">
 					<input type="password" placeholder="密码" class="input1" name="password">
 					<p class="clear">
 						<input type="text" placeholder="验证码" class="input2">
-						<span class="verCode">Oo3n</span>
+						<span class="verCode"></span>
 					</p>
+                    <p style="border-bottom: 10px">
+                        <b style="font-size: 15px; color: red; border-bottom: 10px">{{ error }}</b>
+                    </p>
+                    <br>
 					<p>
 						<input type="checkbox" id="check">
 						<label for="check">自动登录</label>
 						<a href="#">找回密码</a>
 					</p>
 					<input type="submit" value="登录">
-					<p class="tuijian_title">亲，没有账号，你可以选择以下快捷登录方式！</p>
+					<p class="tuijian_title">亲，你可以选择以下快捷登录方式！</p>
 				</form>
 			</div>
 			<div class="entry_right_bottom">

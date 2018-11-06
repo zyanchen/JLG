@@ -6,9 +6,14 @@
 		<title>用户注册</title>
 		<link rel="shortcut icon" href="{% static '/img/title.ico' %}"/>
 		<link rel="stylesheet" type="text/css" href="{% static '/css/register.css' %}"/>
+{#        <link rel="stylesheet" href="{% static '/css/bootstrap.css' %}">#}
+{#        <link rel="stylesheet" href="{% static '/css/swiper.css' %}">#}
 		<script src="{% static '/js/jquery-1.12.0.js' %}"></script>
 		<script src="{% static '/js/jquery.cookie.js' %}"></script>
+        <script src="{% static '/js/bootstrap.js' %}"></script>
+        <script src="{% static '/js/swiper.js' %}"></script>
 {#		<script src="{% static '/js/register.js' %}"></script>#}
+        <script src="{% static 'js/myregister.js' %}"></script>
 
 	</head>
 	<body>
@@ -27,50 +32,37 @@
 				<p class="tishi"></p>
 				<form class="tel" method="post">
                     {% csrf_token %}
+                    <p>
+{#                        <label>*用 户 名：</label>#}
+{#                        <input type="text" placeholder="输入手机号" name="username">#}
+
+                        <div class="form-group" id="account">
+                            <label class="control-label sr-only" for="inputSuccess5">*用 户 名：</label>
+                            <input type="text" class="form-control" id="inputSuccess5" aria-describedby="inputSuccess5Status" placeholder="输入手机号" name="username"> <b></b>
+                        </div>
+                    </p>
 					<p>
-						<label>*用户名：</label>
-						<input type="text" placeholder="输入手机号" name="username">
+{#						<label>*设置密码：</label>#}
+{#						<input type="password" placeholder="创建密码" name="password">#}
+                        <div class="form-group" id="passwd">
+                            <label class="control-label sr-only" for="inputSuccess5">*设置密码：</label>
+                            <input type="password" class="form-control" id="inputSuccess5" aria-describedby="inputSuccess5Status" placeholder="创建密码" name="password"> <b></b>
+                        </div>
 					</p>
 					<p>
-						<label>*设置密码：</label>
-						<input type="password" placeholder="创建密码" name="password">
-					</p>
-					<p>
-						<label>*确认密码：</label>
-						<input type="password" placeholder="确认密码">
+{#						<label>*确认密码：</label>#}
+{#						<input type="password" placeholder="确认密码">#}
+
+                        <div class="form-group" id="ispasswd">
+                            <label class="control-label sr-only" for="inputSuccess5">*设置密码：</label>
+                            <input type="password" class="form-control" id="inputSuccess5" aria-describedby="inputSuccess5Status" placeholder="确定密码"> <b></b>
+                        </div>
 					</p>
 					<p class="checkBox">
 						<input type="checkbox" id="check" checked="checked">
 						<label for="check">我已阅读并同意《嘉丽购物网服务条款》</label>
 					</p>
 					<input type="submit" value="注册">
-					<p class="change">
-						<span>您还可以选择</span>
-						<a href="#">邮箱注册</a>
-					</p>
-				</form>
-				<form class="E_mail" style="display: none;">
-					<p>
-						<label>*用户名：</label>
-						<input type="text" placeholder="输入邮箱地址">
-					</p>
-					<p>
-						<label>*设置密码：</label>
-						<input type="password" placeholder="创建密码">
-					</p>
-					<p>
-						<label>*确认密码：</label>
-						<input type="password" placeholder="确认密码">
-					</p>
-					<p class="checkBox">
-						<input type="checkbox" id="check" checked="checked">
-						<label for="check">我已阅读并同意《嘉丽购物网服务条款》</label>
-					</p>
-					<input type="submit" value="注册">
-					<p class="change">
-						<span>您还可以选择</span>
-						<a href="#">手机注册</a>
-					</p>
 				</form>
 			</div>
 			<div class="register_right">

@@ -109,7 +109,7 @@ body{
 	cursor: pointer;
 }
 .entry_right .clear{
-	margin-bottom: 20px;
+	margin-bottom: 0px;
 }
 .entry_right .clear:after{
 	content: '.';
@@ -136,7 +136,7 @@ body{
 	background: #e21357;
 	margin-top: 10px;
 	cursor: pointer;
-	margin-bottom: 30px;
+	margin-bottom: 20px;
 	font-size: 15px;
 	font-family: "微软雅黑";
 }

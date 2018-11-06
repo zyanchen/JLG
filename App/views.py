@@ -90,8 +90,11 @@ def detail(request,num):
     in3 = inlist[2]
     in4 = inlist[3]
     in5 = inlist[4]
-    print(in1)
-    return render(request,'detail.html',context={'det':det,'path1':path1,'path2':path2,'path3':path3,'yh1':yh1,'yh2':yh2,'in1':in1,'in2':in2,'in3':in3,'in4':in4,'in5':in5})
+    ind2 = Index_Img.objects.filter(salesVolume=2).first()
+    ind3 = Index_Img.objects.filter(salesVolume=3).first()
+    ind4 = Index_Img.objects.filter(salesVolume=4).first()
+    ind5 = Index_Img.objects.filter(salesVolume=5).first()
+    return render(request,'detail.html',context={'det':det,'path1':path1,'path2':path2,'path3':path3,'yh1':yh1,'yh2':yh2,'in1':in1,'in2':in2,'in3':in3,'in4':in4,'in5':in5,'ind2':ind2,'ind3':ind3,'ind4':ind4,'ind5':ind5})
 
 # 登陆
 def entry(request):

@@ -161,16 +161,55 @@
 		<div id="collocation">
 			<span>最佳搭配</span>
 			<div class="collocation_all">
-
+                <div class="collocation_one">
+                    <img src="{{ ind2.src }}" alt="">
+                    <p class="collocation_describe describe">{{ ind2.describe }}</p>
+                    <p class="collocation_price">{{ ind2.price }}</p>
+                </div>
+                <div class="collocation_one">
+                    <img src="{{ ind3.src }}" alt="">
+                    <p class="collocation_describe describe">{{ ind3.describe }}</p>
+                    <p class="collocation_price">{{ ind3.price }}</p>
+                </div>
+                <div class="collocation_one">
+                    <img src="{{ ind4.src }}" alt="">
+                    <p class="collocation_describe describe">{{ ind4.describe }}</p>
+                    <p class="collocation_price">{{ ind4.price }}</p>
+                </div>
+                <div class="collocation_one">
+                    <img src="{{ ind5.src }}" alt="">
+                    <p class="collocation_describe describe">{{ ind5.describe }}</p>
+                    <p class="collocation_price">{{ ind5.price }}</p>
+                </div>
             </div>
 		</div>
 		<div id="parameter">
 			<div id="parameter_left">
 				<div id="RBrowse">
 					<p class="browse">最近浏览</p>
+                    <div class="RBrowse_one">
+                        <img src="{{ ind2.src }}" alt="">
+                        <a href="{% url 'App:detail' ind2.salesVolume %}"><p class="RBrowse_describe describe">{{ ind2.describe }}</p></a>
+                        <p class="RBrowse_price">{{ ind2.price }}</p>
+                    </div>
+                    <div class="RBrowse_one">
+                        <img src="{{ ind3.src }}" alt="">
+                        <a href="{% url 'App:detail' ind3.salesVolume %}"><p class="RBrowse_describe describe">{{ ind3.describe }}</p></a>
+                        <p class="RBrowse_price">{{ ind3.price }}</p>
+                    </div>
 				</div>
 				<div id="sell">
 					<p class="sell_p">热销排行</p>
+                    <div class="sell_one">
+                        <img src="{{ ind4.src }}" alt="">
+                        <a href="{% url 'App:detail' ind4.salesVolume %}"><p class="sell_describe describe">{{ ind4.describe }}</p></a>
+                        <p class="sell_price">{{ ind4.price }}</p>
+                    </div>
+                    <div class="sell_one">
+                        <img src="{{ ind5.src }}" alt="">
+                        <a href="{% url 'App:detail' ind5.salesVolume %}"><p class="sell_describe describe">{{ ind5.describe }}</p></a>
+                        <p class="sell_price">{{ ind5.price }}</p>
+                    </div>
 				</div>
 			</div>
 			<div id="introduce">

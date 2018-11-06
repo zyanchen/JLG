@@ -82,31 +82,53 @@
 			</div>
 		</div>
 		<div id="goods">
-			<div id="goods_path"></div>
+			<div id="goods_path">
+                <a href="#" class="path_1">{{ path1 }}</a>
+                <i>></i>
+                <a href="#" class="path_2">{{ path2 }}</a>
+                <i>></i>
+                <a href="#" class="path_3">{{ path3 }}</a>
+            </div>
 			<div id="goods_details">
 				<div class="details_bigimg">
 					<div class="smallArea"></div>
+                    <img src="{{ det.img }}" alt="">
 				</div>
-				<div class="bigArea"></div>
+				<div class="bigArea">
+                    <img src="{{ det.img }}" alt="" class="bigArea_bigImg">
+                </div>
 				<div class="details_information">
-					<div class="title">	</div>
+					<div class="title">
+                        <i>{{ det.TV }}</i>
+                        <b>{{ det.descibe }}</b>
+                        <span>{{ det.number }}</span>
+                    </div>
 					<div class="price">
 						<p class="price_top">
 							<label>嘉丽价</label>
+                            <b>
+                                ¥
+                                <span>{{ det.price }}</span>
+                            </b>
 						</p>
 						<p class="price_center">
 							<label>促销优惠</label>
+                            <span>{{ yh1 }}</span>
+                            <span class="newline">{{ yh2 }}</span>
 						</p>
 						<p class="price_bottom">
 							<label>积分</label>
+                            <span>{{ det.jiFen }}</span>
 						</p>
 					</div>
 					<div class="standard">
 						<div class="size">
 							<label>尺寸</label>
+                            <span >暂无尺寸</span>
 						</div>
 						<div class="color">
 							<label>颜色</label>
+                            <span>颜色</span>
 						</div>
 					</div>
 					<div class="number">
@@ -122,7 +144,9 @@
 						<span class="btn3">收藏</span>
 					</div>
 				</div>
-				<div class="details_smallImg"></div>
+				<div class="details_smallImg">
+                    <img src="{{ det.img }}" alt="">
+                </div>
 			</div>
 		</div>
 		<div id="share">
@@ -136,7 +160,9 @@
 		</div>
 		<div id="collocation">
 			<span>最佳搭配</span>
-			<div class="collocation_all"></div>
+			<div class="collocation_all">
+
+            </div>
 		</div>
 		<div id="parameter">
 			<div id="parameter_left">
@@ -170,7 +196,23 @@
 						<p>用户咨询</p>
 					</li>
 				</ul>
-				<ul class="intr_bottom"></ul>
+				<ul class="intr_bottom">
+                    <li>
+                        <img src="{{ in1 }}" alt="">
+                    </li>
+                    <li>
+                        <img src="{{ in2 }}" alt="">
+                    </li>
+                    <li>
+                        <img src="{{ in3 }}" alt="">
+                    </li>
+                    <li>
+                        <img src="{{ in4 }}" alt="">
+                    </li>
+                    <li>
+                        <img src="{{ in5 }}" alt="">
+                    </li>
+                </ul>
 			</div>
 		</div>
 		<div id="service">

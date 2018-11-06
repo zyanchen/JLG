@@ -226,6 +226,7 @@ body{
 	height: 40px;
 	line-height: 40px;
 	font-size: 13px;
+	float: left;
 }
 #goods_path a{
 	float: left;
@@ -266,6 +267,11 @@ body{
 	top: 0;
 	display: none;
 }
+.smallArea{
+	display: none;
+	left: 184px;
+	top: 200px;
+}
 #goods_details .bigArea{
 	overflow: hidden;
 	width: 36%;
@@ -284,6 +290,9 @@ body{
 	top: 0; 
 	width: 200%; 
 	height: 200%;
+}
+.bigArea{
+
 }
 #goods_details .details_information{
 	float: left;
@@ -387,10 +396,15 @@ body{
 .standard .size{
 	width: 100%;
 	height: 50px;
+	top: 10px;
+	font-size: 13px;
+	line-height: 50px
 }
 .standard .color{
 	width: 100%;
 	height: 45px;
+	font-size: 13px;
+	line-height: 50px
 }
 .standard .color table{
 	margin-top: 5px;
@@ -657,7 +671,7 @@ body{
 	background-size: cover;
 }
 #introduce .intr_bottom li{
-	display: none;
+	display: block;
 	width: 99.9%;
 	border: 1px solid #e8e8e7;
 }

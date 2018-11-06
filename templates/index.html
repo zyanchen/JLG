@@ -78,7 +78,6 @@
 				<span style="color: #e91456;">400-630-0077</span>
 			</div>
 		</div>
-
 		<div id="bigImg" class="swiper-container">
 			<div id="bigImg_img" class="swiper-wrapper">
 				<div id="mask"></div>
@@ -447,7 +446,7 @@
 				<div>嘉书</div>
                 {% for lu in lunbo_goods %}
                     <p class="time">{{ lu.time }}</p>
-                    <a href="{% url 'App:detail' %}"><img src="{{ lu.src }}" alt=""></a>
+                    <a href="{% url 'App:detail' lu.salesVolume %}"><img src="{{ lu.src }}" alt=""></a>
                     <a href="#">{{ lu.describe }}</a>
                     <h3>{{ lu.price }}</h3>
                 {% endfor %}
@@ -462,18 +461,21 @@
 			<div id="hit_goods_today">
                 <div class="hit_goods_high">
                     {% for h in hit %}
-                        <img src="{{ h.src }}" alt="">
+                        <a href="{% url 'App:detail' h.salesVolume %}"><img src="{{ h.src }}" alt=""></a>
+
                     {% endfor %}
                 </div>
                 <div class="hit_list">
                     {% for h_t in hit_today %}
                         {% if h_t.num < '6' %}
                             <div class="hit_goods_directSeeding">
-                                <div class="hit_directSeeding">直播</div>
-                                <p class="hit_time">{{ h_t.time }}</p>
-                                <img src="{{ h_t.src }}" alt="">
-                                <a href="" class="describe">{{ h_t.describe }}</a>
-                                <p class="hit_price">{{ h_t.price }}</p>
+                                <a href="{% url 'App:detail' h_t.salesVolume %}">
+                                    <div class="hit_directSeeding">直播</div>
+                                    <p class="hit_time">{{ h_t.time }}</p>
+                                    <img src="{{ h_t.src }}" alt="">
+                                    <a href="" class="describe">{{ h_t.describe }}</a>
+                                    <p class="hit_price">{{ h_t.price }}</p>
+                                </a>
                             </div>
                         {% endif %}
                     {% endfor %}

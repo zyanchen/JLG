@@ -1,6 +1,6 @@
 $(function () {
-    var swiper = new Swiper('.swiper-container', {
-
+    // 轮播图
+    new Swiper('.swiper-container', {
         pagination: '.swiper-pagination',
         slidesPerView: 1,
         paginationClickable: true,
@@ -8,4 +8,11 @@ $(function () {
         autoplay:2500,
         loop: true
     });
+
+    // 浮动栏消失
+	$(".colseAD").click(function(){
+		$("#footrAD").animate({"opacity":0},300,function(){
+			$(this).css("display","none");
+		});
+	});
 })

@@ -8,9 +8,10 @@ from django.http import HttpResponse
 from django.shortcuts import render, redirect
 
 # Create your views here.
-from App.models import User, Index_Img
+from App.models import User, Index_Img, detail_json
 
 
+# 首页
 def index(request):
     lunbo = Index_Img.objects.filter(use='lunbo')   # 轮播图
     lunbo_goods = Index_Img.objects.filter(use='lunbo_goods')   # 直播商品
@@ -44,35 +45,53 @@ def index(request):
         'hit_today': hit_today,
         'recommend': recommend,
         'recommend_goods': recommend_goods,
-        'F1_left0' : F1_left0,
-        'F1_left1' : F1_left1,
-        'F1_right' : F1_right,
-        'F2_left0' : F2_left0,
-        'F2_left1' : F2_left1,
-        'F2_right' : F2_right,
-        'F3_left0' : F3_left0,
-        'F3_left1' : F3_left1,
-        'F3_right' : F3_right,
-        'F4_left0' : F4_left0,
-        'F4_left1' : F4_left1,
-        'F4_right' : F4_right,
-        'bannerAds' : bannerAds,
+        'F1_left0': F1_left0,
+        'F1_left1': F1_left1,
+        'F1_right': F1_right,
+        'F2_left0': F2_left0,
+        'F2_left1': F2_left1,
+        'F2_right': F2_right,
+        'F3_left0': F3_left0,
+        'F3_left1': F3_left1,
+        'F3_right': F3_right,
+        'F4_left0': F4_left0,
+        'F4_left1': F4_left1,
+        'F4_right': F4_right,
+        'bannerAds': bannerAds,
     }
     token = request.COOKIES.get('token')
     users = User.objects.filter(token=token)
     if users.exists():
         user = users.first()
-        return render(request,'index.html',context=data)
+        return render(request,'index.html',context={'lunbo': lunbo,'lunbo_goods': lunbo_goods,'hit': hit,'hit_today': hit_today,'recommend': recommend,'recommend_goods': recommend_goods,'F1_left0': F1_left0,'F1_left1': F1_left1,'F1_right': F1_right,'F2_left0': F2_left0,'F2_left1': F2_left1,'F2_right': F2_right,'F3_left0': F3_left0,'F3_left1': F3_left1,'F3_right': F3_right,'F4_left0': F4_left0,'F4_left1': F4_left1,'F4_right': F4_right,'bannerAds': bannerAds,'username':user.username})
     else:
         return render(request,'index.html',context=data)
 
-
+# 购物车
 def cart(request):
     return render(request,'cart.html')
 
-
-def detail(request):
-    return render(request,'detail.html')
+# 物品详情页
+def detail(request,num):
+    det = detail_json.objects.filter(num=num).first()
+    # 商品分类
+    pathlist = det.path.split(',')
+    path1 = pathlist[0]
+    path2 = pathlist[1]
+    path3 = pathlist[2]
+    # 促销优惠
+    yhlist = det.youHui.split(',')
+    yh1 = yhlist[0]
+    yh2 = yhlist[1]
+    # 详情图片
+    inlist = det.introduce.split(',')
+    in1 = inlist[0]
+    in2 = inlist[1]
+    in3 = inlist[2]
+    in4 = inlist[3]
+    in5 = inlist[4]
+    print(in1)
+    return render(request,'detail.html',context={'det':det,'path1':path1,'path2':path2,'path3':path3,'yh1':yh1,'yh2':yh2,'in1':in1,'in2':in2,'in3':in3,'in4':in4,'in5':in5})
 
 # 登陆
 def entry(request):
@@ -111,7 +130,7 @@ def logout(request):
     response.delete_cookie('token')
     return response
 
-#
+# 注册
 def register(request):
     if request.method == 'GET':
         return render(request,'register.html')
@@ -180,5 +199,4 @@ def getjson(request):
                 img.price = content['price']
                 img.save()
     return HttpResponse('已获取数据')
-
 

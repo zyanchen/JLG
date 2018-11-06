@@ -14,3 +14,18 @@ class Index_Img(models.Model):
     describe = models.CharField(max_length=256,default='')
     price = models.CharField(max_length=40,default='')
     salesVolume = models.CharField(max_length=100,default='')
+
+
+class detail_json(models.Model):
+    num = models.CharField(max_length=8,default='')
+    path = models.CharField(max_length=100,default='')
+    TV = models.CharField(max_length=20,default='')
+    number = models.CharField(max_length=50,default='')
+    youHui = models.CharField(max_length=100,default='')
+    jiFen = models.CharField(max_length=50,default='')
+    smallimg = models.CharField(max_length=256,default='')
+    img = models.CharField(max_length=100,default='')
+    descibe = models.CharField(max_length=256,default='')
+    price = models.DecimalField(max_digits=7,decimal_places=2,default='')
+    introduce = models.TextField(default='')
+    collocation = models.TextField(default='')

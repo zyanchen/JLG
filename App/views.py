@@ -4,11 +4,11 @@ import random
 import time
 import uuid
 
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 from django.shortcuts import render, redirect
 
 # Create your views here.
-from App.models import User, Index_Img, detail_json
+from App.models import User, Index_Img, detail_json, Cart
 
 
 # 首页
@@ -63,13 +63,28 @@ def index(request):
     users = User.objects.filter(token=token)
     if users.exists():
         user = users.first()
-        return render(request,'index.html',context={'lunbo': lunbo,'lunbo_goods': lunbo_goods,'hit': hit,'hit_today': hit_today,'recommend': recommend,'recommend_goods': recommend_goods,'F1_left0': F1_left0,'F1_left1': F1_left1,'F1_right': F1_right,'F2_left0': F2_left0,'F2_left1': F2_left1,'F2_right': F2_right,'F3_left0': F3_left0,'F3_left1': F3_left1,'F3_right': F3_right,'F4_left0': F4_left0,'F4_left1': F4_left1,'F4_right': F4_right,'bannerAds': bannerAds,'username':user.username})
+        all_carts = Cart.objects.filter(user=user)
+        all_cart = 0
+        for i in all_carts:
+            all_cart += i.number
+        return render(request,'index.html',context={'lunbo': lunbo,'lunbo_goods': lunbo_goods,'hit': hit,'hit_today': hit_today,'recommend': recommend,'recommend_goods': recommend_goods,'F1_left0': F1_left0,'F1_left1': F1_left1,'F1_right': F1_right,'F2_left0': F2_left0,'F2_left1': F2_left1,'F2_right': F2_right,'F3_left0': F3_left0,'F3_left1': F3_left1,'F3_right': F3_right,'F4_left0': F4_left0,'F4_left1': F4_left1,'F4_right': F4_right,'bannerAds': bannerAds,'username':user.username,'token':token,'all_cart':all_cart})
     else:
         return render(request,'index.html',context=data)
 
 # 购物车
 def cart(request):
-    return render(request,'cart.html')
+    ind1 = Index_Img.objects.filter(salesVolume=1).first()
+    ind2 = Index_Img.objects.filter(salesVolume=2).first()
+    ind3 = Index_Img.objects.filter(salesVolume=3).first()
+    ind4 = Index_Img.objects.filter(salesVolume=4).first()
+    ind5 = Index_Img.objects.filter(salesVolume=5).first()
+    token = request.COOKIES.get('token')
+    users = User.objects.filter(token=token)
+    if users.exists():
+        user = users.first()
+        return render(request,'cart.html',context={'ind1':ind1,'ind2':ind2,'ind3':ind3,'ind4':ind4,'ind5':ind5,'username':user.username})
+    else:
+        return render(request, 'cart.html',context={'ind1': ind1, 'ind2': ind2, 'ind3': ind3, 'ind4': ind4, 'ind5': ind5,})
 
 # 物品详情页
 def detail(request,num):
@@ -94,7 +109,17 @@ def detail(request,num):
     ind3 = Index_Img.objects.filter(salesVolume=3).first()
     ind4 = Index_Img.objects.filter(salesVolume=4).first()
     ind5 = Index_Img.objects.filter(salesVolume=5).first()
-    return render(request,'detail.html',context={'det':det,'path1':path1,'path2':path2,'path3':path3,'yh1':yh1,'yh2':yh2,'in1':in1,'in2':in2,'in3':in3,'in4':in4,'in5':in5,'ind2':ind2,'ind3':ind3,'ind4':ind4,'ind5':ind5})
+    token = request.COOKIES.get('token')
+    users = User.objects.filter(token=token)
+    if users.exists():
+        user = users.first()
+        all_carts = Cart.objects.filter(user=user)
+        all_cart = 0
+        for i in all_carts:
+            all_cart += i.number
+        return render(request,'detail.html',context={'det':det,'path1':path1,'path2':path2,'path3':path3,'yh1':yh1,'yh2':yh2,'in1':in1,'in2':in2,'in3':in3,'in4':in4,'in5':in5,'ind2':ind2,'ind3':ind3,'ind4':ind4,'ind5':ind5,'username':user.username,'num':num,'all_cart':all_cart})
+    else:
+        return render(request, 'detail.html',context={'det': det, 'path1': path1, 'path2': path2, 'path3': path3, 'yh1': yh1, 'yh2': yh2,'in1': in1, 'in2': in2, 'in3': in3, 'in4': in4, 'in5': in5, 'ind2': ind2, 'ind3': ind3,'ind4': ind4, 'ind5': ind5})
 
 # 登陆
 def entry(request):
@@ -203,4 +228,48 @@ def getjson(request):
                 img.price = content['price']
                 img.save()
     return HttpResponse('已获取数据')
+
+
+def addcart(request):
+    goodsid = request.GET.get('goodsid')
+    token = request.COOKIES.get('token')
+    responseData = {
+        'msg': '添加购物车成功',
+        'status': 1,
+    }
+    if token:
+        user = User.objects.get(token=token)
+        goods = detail_json.objects.get(pk=goodsid)
+        carts = Cart.objects.filter(user=user).filter(goods=goods)
+        if carts.exists():
+            cart = carts.first()
+            cart.number = cart.number + 1
+            cart.save()
+            responseData['number'] = cart.number
+        else:
+            cart = Cart()
+            cart.user = user
+            cart.goods = goods
+            cart.number = 1
+            cart.save()
+            responseData['number'] = cart.number
+        return JsonResponse(responseData)
+    else:
+        responseData['msg'] = '未登录，请登录后操作'
+        responseData['status'] = -1
+        return JsonResponse(responseData)
+
+
+def islogin(request):
+    token = request.COOKIES.get('token')
+    responseData = {
+        'msg': '登陆成功',
+        'status': 1,
+    }
+    if token:
+        return JsonResponse(responseData)
+    else:
+        responseData['msg'] = '请登陆'
+        responseData['status'] = -1
+        return JsonResponse(responseData)
 

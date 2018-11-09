@@ -11,6 +11,7 @@
 		<script src="{% static '/js/jquery-1.12.0.js' %}"></script>
 		<script src="{% static '/js/jquery.cookie.js' %}"></script>
 {#		<script src="{% static '/js/index.js' %}"></script>#}
+        <script src="{% static '/js/myindex.js' %}"></script>
 	</head>
 	<body>
         <div id="top">
@@ -48,10 +49,10 @@
 					<span>搜索</span>
 				</span>
 			</div>
-			<div id="logo_right">
-				<span class="red">0</span>
-				<span class="span2">我的购物车</span>
-			</div>
+            <div id="logo_right">
+                <span class="red">{{ all_cart }}</span>
+                <span class="span2">我的购物车</span>
+            </div>
 		</div>
 		<div id="nav">
 			<div id="nav_left">全部商品分类</div>

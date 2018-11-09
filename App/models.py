@@ -29,3 +29,10 @@ class detail_json(models.Model):
     price = models.DecimalField(max_digits=7,decimal_places=2,default='')
     introduce = models.TextField(default='')
     collocation = models.TextField(default='')
+
+
+class Cart(models.Model):
+    user = models.ForeignKey(User)
+    goods = models.ForeignKey(detail_json)
+    number = models.IntegerField()
+

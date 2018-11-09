@@ -221,21 +221,6 @@ $(function(){
 		$(".cart_yes").hide();
 	}
 	
-	//猜你喜欢
-	var $GYLike_all = $(".GYLike_all");
-	var $browse_list = $.cookie("browse") ? JSON.parse($.cookie("browse")) : [];//最近浏览过的商品
-	if($browse_list.length != 0){
-		for(var i=0 ; i<$browse_list.length ; i++){
-			var obj = $browse_list[i];
-			var $divNode = $("<div/>").addClass("GYLike_one").appendTo($GYLike_all);
-			$("<img/>").attr("src",obj.img).attr("id",obj.id).appendTo($divNode);
-			$("<a/>").attr("href","detail.html?"+obj.id).html(obj.describe).addClass("GYLike_describe").addClass("describe").appendTo($divNode);
-			$("<p/>").html("¥"+obj.price).addClass("GYLike_price").appendTo($divNode);
-		}
-	}else{
-		$("#GYLike").hide();
-	}
-	
 	//点击猜你喜欢商品进入商品详情
 	$GYLike_all.find("img").click(function(){
 		if($(this).attr("id")){

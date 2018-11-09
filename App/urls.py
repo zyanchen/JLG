@@ -10,5 +10,7 @@ urlpatterns = [
     url(r'^detail.html/(\d+)$', views.detail,name='detail'),
     url(r'^register/$', views.register,name='register'),
     url(r'^getjson/$', views.getjson),
+    url(r'^addcart/$', views.addcart, name='addcart'),
+    url(r'^islogin/$', views.islogin, name='islogin')
 
 ]

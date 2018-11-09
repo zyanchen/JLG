@@ -8,7 +8,7 @@
 		<link rel="stylesheet" type="text/css" href="{% static '/css/cart.css' %}"/>
 		<script src="{% static '/js/jquery-1.12.0.js' %}"></script>
 		<script src="{% static '/js/jquery.cookie.js' %}"></script>
-		<script src="{% static '/js/cart.js' %}"></script>
+{#		<script src="{% static '/js/cart.js' %}"></script>#}
 
 	</head>
 	<body>
@@ -18,8 +18,12 @@
 				<span>电话热线<b>400-630-0077</b></span>
 			</div>
 			<div id="top_center">
-				<a href="entry.html?cart">[登录]</a>
-				<a href="{% url 'App:register' %}">[免费注册]</a>
+				{% if username %}
+                    <span>您好,{{ username }} <a href="{% url 'App:logout' %}"> [退出]</a></span>
+                {% else %}
+				    <a href="{% url 'App:entry' %}">[登录]</a>
+				    <a href="{% url 'App:register' %}">[免费注册]</a>
+                {% endif %}
 			</div>
 		<ul id="top_right">
 				<a href="#"><li>我的嘉</li></a>
@@ -107,7 +111,33 @@
 		</div>
 		<div id="GYLike">
 			<span>猜你喜欢</span>
-			<div class="GYLike_all"></div>
+			<div class="GYLike_all">
+                <div class="GYLike_one">
+                    <img src="{{ ind1.src }}" alt="">
+                    <a href="{% url 'App:detail' ind1.salesVolume %}"><p class="GYLike_describe describe">{{ ind1.describe }}</p></a>
+                    <p class="GYLike_price">{{ ind1.price }}</p>
+                </div>
+                <div class="GYLike_one">
+                    <img src="{{ ind2.src }}" alt="">
+                    <a href="{% url 'App:detail' ind2.salesVolume %}"><p class="GYLike_describe describe">{{ ind2.describe }}</p></a>
+                    <p class="GYLike_price">{{ ind2.price }}</p>
+                </div>
+                <div class="GYLike_one">
+                    <img src="{{ ind3.src }}" alt="">
+                    <a href="{% url 'App:detail' ind3.salesVolume %}"><p class="GYLike_describe describe">{{ ind3.describe }}</p></a>
+                    <p class="GYLike_price">{{ ind3.price }}</p>
+                </div>
+                <div class="GYLike_one">
+                    <img src="{{ ind4.src }}" alt="">
+                    <a href="{% url 'App:detail' ind4.salesVolume %}"><p class="GYLike_describe describe">{{ ind4.describe }}</p></a>
+                    <p class="GYLike_price">{{ ind4.price }}</p>
+                </div>
+                <div class="GYLike_one">
+                    <img src="{{ ind5.src }}" alt="">
+                    <a href="{% url 'App:detail' ind5.salesVolume %}"><p class="GYLike_describe describe">{{ ind5.describe }}</p></a>
+                    <p class="GYLike_price">{{ ind5.price }}</p>
+                </div>
+            </div>
 		</div>
 		<div id="service">
 			<div class="service_top"></div>

@@ -8,7 +8,8 @@
 		<link rel="stylesheet" type="text/css" href="{% static '/css/detail.css' %}"/>
 		<script src="{% static '/js/jquery-1.12.0.js' %}"></script>
 		<script src="{% static '/js/jquery.cookie.js' %}"></script>
-		<script src="{% static '/js/detail.js' %}"></script>
+{#		<script src="{% static '/js/detail.js' %}"></script>#}
+        <script src="{% static '/js/mydetail.js' %}"></script>
 
 	</head>
 	<body>
@@ -18,8 +19,12 @@
 				<span>电话热线<b>400-630-0077</b></span>
 			</div>
 			<div id="top_center">
-				<a href="entry.html?index">[登录]</a>
-				<a href="{% url 'App:register' %}">[免费注册]</a>
+				{% if username %}
+                    <span>您好,{{ username }} <a href="{% url 'App:logout' %}"> [退出]</a></span>
+                {% else %}
+				    <a href="{% url 'App:entry' %}">[登录]</a>
+				    <a href="{% url 'App:register' %}">[免费注册]</a>
+                {% endif %}
 			</div>
 		<ul id="top_right">
 				<a href="#"><li>我的嘉</li></a>
@@ -44,7 +49,7 @@
 				</span>
 			</div>
 			<div id="logo_right">
-				<span class="red">0</span>
+				<span class="red">{{ all_cart }}</span>
 				<span class="span2">我的购物车</span>
 			</div>
 		</div>
@@ -134,13 +139,13 @@
 					<div class="number">
 						<label>数量</label>
 						<div class="minus">-</div>
-						<input type="text" value="1">
+						<input type="text" value="1" class="goodnum">
 						<div class="plus">+</div>
 						<span>件</span>
 					</div>
 					<div class="settlement">
 						<span class="btn1">立即购买</span>
-						<span class="btn2">加入购物车</span>
+						<span class="btn2" goodsid="{{ det.num }}" number="{{ det.num }}">加入购物车</span>
 						<span class="btn3">收藏</span>
 					</div>
 				</div>

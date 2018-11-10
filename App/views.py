@@ -79,10 +79,10 @@ def cart(request):
     ind4 = Index_Img.objects.filter(salesVolume=4).first()
     ind5 = Index_Img.objects.filter(salesVolume=5).first()
     token = request.COOKIES.get('token')
-    users = User.objects.filter(token=token)
-    if users.exists():
-        user = users.first()
-        return render(request,'cart.html',context={'ind1':ind1,'ind2':ind2,'ind3':ind3,'ind4':ind4,'ind5':ind5,'username':user.username})
+    if token:
+        user = User.objects.get(token=token)
+        carts = Cart.objects.filter(user=user).exclude(number=0)
+        return render(request,'cart.html',context={'ind1':ind1,'ind2':ind2,'ind3':ind3,'ind4':ind4,'ind5':ind5,'username':user.username,'carts':carts})
     else:
         return render(request, 'cart.html',context={'ind1': ind1, 'ind2': ind2, 'ind3': ind3, 'ind4': ind4, 'ind5': ind5,})
 
@@ -233,6 +233,8 @@ def getjson(request):
 def addcart(request):
     goodsid = request.GET.get('goodsid')
     token = request.COOKIES.get('token')
+    value = request.GET.get('value')
+    print(value)
     responseData = {
         'msg': '添加购物车成功',
         'status': 1,
@@ -243,14 +245,14 @@ def addcart(request):
         carts = Cart.objects.filter(user=user).filter(goods=goods)
         if carts.exists():
             cart = carts.first()
-            cart.number = cart.number + 1
+            cart.number = int(cart.number) + int(value)
             cart.save()
             responseData['number'] = cart.number
         else:
             cart = Cart()
             cart.user = user
             cart.goods = goods
-            cart.number = 1
+            cart.number = int(value)
             cart.save()
             responseData['number'] = cart.number
         return JsonResponse(responseData)
@@ -273,3 +275,91 @@ def islogin(request):
         responseData['status'] = -1
         return JsonResponse(responseData)
 
+
+def cartadd(request):
+    goodsid = request.GET.get('goodsid')
+    token = request.COOKIES.get('token')
+    responseData = {
+        'msg': '添加购物车成功',
+        'status': 1,
+    }
+    if token:
+        user = User.objects.get(token=token)
+        goods = detail_json.objects.get(pk=goodsid)
+        carts = Cart.objects.filter(user=user).filter(goods=goods)
+        if carts.exists():
+            cart = carts.first()
+            cart.number = cart.number + 1
+            cart.save()
+            responseData['number'] = cart.number
+        else:
+            cart = Cart()
+            cart.user = user
+            cart.goods = goods
+            cart.number = 1
+            cart.save()
+            responseData['number'] = cart.number
+        return JsonResponse(responseData)
+
+
+def cartsub(request):
+    goodsid = request.GET.get('goodsid')
+    token = request.COOKIES.get('token')
+    responseData = {
+        'msg': '删减购物车成功',
+        'status': 1,
+    }
+    user = User.objects.get(token=token)
+    goods = detail_json.objects.get(pk=goodsid)
+    carts = Cart.objects.filter(user=user).filter(goods=goods)
+    cart = carts.first()
+    cart.number = cart.number - 1
+    if cart.number < 1:
+        cart.number = 1
+    cart.save()
+    responseData['number'] = cart.number
+
+    return JsonResponse(responseData)
+
+
+def delgoods(request):
+    goodsid = request.GET.get('goodsid')
+    token = request.COOKIES.get('token')
+    user = User.objects.get(token=token)
+    goods = detail_json.objects.get(pk=goodsid)
+    cart = Cart.objects.filter(user=user).filter(goods=goods).first()
+    cart.delete()
+    responseData = {
+        'msg': '删除成功',
+        'status': 1,
+    }
+    return JsonResponse(responseData)
+
+
+def changecartstatus(request):
+    cartid = request.GET.get('cartid')
+    cart = Cart.objects.get(pk=cartid)
+    cart.isselect = not cart.isselect
+    print(cart.isselect)
+    cart.save()
+    responseData = {
+        'msg': '选中状态改变',
+        'status': 1,
+        'isselect': cart.isselect
+    }
+    return JsonResponse(responseData)
+
+
+def changecartselect(request):
+    isselect = request.GET.get('isselect')
+    if isselect == 'true':
+        isselect = True
+    else:
+        isselect = False
+    token = request.COOKIES.get('token')
+    user = User.objects.get(token=token)
+    carts = Cart.objects.filter(user=user)
+    for cart in carts:
+        cart.isselect = isselect
+        cart.save()
+    return JsonResponse({'msg': '反选操作成功', 'status': 1, 'isselect':isselect})

@@ -11,6 +11,10 @@ urlpatterns = [
     url(r'^register/$', views.register,name='register'),
     url(r'^getjson/$', views.getjson),
     url(r'^addcart/$', views.addcart, name='addcart'),
-    url(r'^islogin/$', views.islogin, name='islogin')
-
+    url(r'^islogin/$', views.islogin, name='islogin'),
+    url(r'^cartadd/$', views.cartadd, name='cartadd'),
+    url(r'^cartsub/$', views.cartsub, name='cartsub'),
+    url(r'^delgoods/$', views.delgoods, name='delgoods'),
+    url(r'^changecartstatus/$', views.changecartstatus, name='changecartstatus'),
+    url(r'^changecartselect/$', views.changecartselect, name='changecartselect'),
 ]

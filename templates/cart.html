@@ -9,6 +9,7 @@
 		<script src="{% static '/js/jquery-1.12.0.js' %}"></script>
 		<script src="{% static '/js/jquery.cookie.js' %}"></script>
 {#		<script src="{% static '/js/cart.js' %}"></script>#}
+        <script src="{% static '/js/mycart.js' %}"></script>
 
 	</head>
 	<body>
@@ -71,9 +72,6 @@
 				<span>全部商品</span>
 				<a href="{% url 'App:index' %}">返回首页</a>
 			</div>
-			<div class="cart_no">
-				购物车还是空的^_^
-			</div>
 			<div class="cart_yes">
 				<table>
 					<thead>
@@ -86,23 +84,88 @@
 							<th>操作</th>
 						</tr>
 					</thead>
-					<tbody></tbody>
+					<tbody>
+                        {% for cart in carts %}
+                            <tr class="goods">
+
+
+                                <td class="td1" isselect="{{ cart.isselect }}">
+                                    {% if cart.isselect %}
+                                        <span class="check ok"  cartid="{{ cart.id }}">√</span>
+                                    {% else %}
+                                        <span class="noCheck ok"  cartid="{{ cart.id }}">√</span>
+                                    {% endif %}
+                                    <img src="{{ cart.goods.img }}" alt="" id="5" style="cursor: pointer;">
+
+                                </td>
+
+
+
+                                <td class="td1">
+                                    <a href="#">
+                                        <h5>{{ cart.goods.descibe }}</h5>
+                                    </a>
+                                    <span>{{ cart.goods.number }}</span>
+                                    <span class="youHui">
+                                        减
+                                    </span>
+                                    <span class="TV">
+                                        TV
+                                    </span>
+                                    <p style="color: rgb(235, 22, 86);">
+                                        {{ cart.goods.youHui }}
+                                    </p>
+                                </td>
+
+
+                                <td class="td2" price="{{ cart.goods.price }}">¥{{ cart.goods.price }}</td>
+
+
+                                <td class="td2 num">
+                                    <div class="minus" goodsid="{{ cart.goods.num }}">-</div>
+                                    <input type="text" readonly="readonly" class="goodnum" value="{{ cart.number }}">
+                                    <div class="plus" goodsid="{{ cart.goods.num }}">+</div>
+
+
+
+
+                                </td>
+                                <td class="td2 cart_price" jl_price="{{ cart.goods.price }}"></td>
+                                <td class="td2">
+                                    <p>
+                                        <a href="#">加入收藏夹</a>
+                                    </p>
+                                    <p>
+                                        <a href="#" class="del" goodsid="{{ cart.goods.num }}">删除</a>
+                                    </p>
+                                </td>
+                            </tr>
+                        {% endfor %}
+
+                    </tbody>
 				</table>
 				<div class="cart_yes_settlement">
+
+
+
 					<div class="settlement_left">
 						<span>
-							<input type="checkbox" style="outline: none;" id="checked">
+							<input type="checkbox" style="outline: none;" id="checked" isselect="false">
 							<label for="checked" style="margin-left: -5px;">全选</label>
 						</span>
-						<span class="delGoods">删除选中的商品</span>
-						<span class="delCart">清空购物车</span>
 					</div>
+
+
+
 					<div class="settlement_center">
 						<p>商品金额：<span class="jinE"></span>元</p>
-						<p>运费：<span class="yunFei">0.00</span>元</p>
-						<p>可返积分：<span class="jiFen"></span></p>
+						<p>运费：<span class="yunFei">10.00</span>元</p>
+						<p>可返积分：<span class="jiFen">512</span></p>
 						<p style="color: #e21357; font-weight: bold;">总计：<span class="zje"></span>元</p>
 					</div>
+
+
+
 					<div class="settlement_right">
 						<input type="button" value="去结算">
 					</div>

@@ -35,4 +35,5 @@ class Cart(models.Model):
     user = models.ForeignKey(User)
     goods = models.ForeignKey(detail_json)
     number = models.IntegerField()
+    isselect = models.BooleanField(default=True)
 

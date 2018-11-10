@@ -182,7 +182,7 @@ body{
 	float: left;
 	margin: 20px 0;
 }
-.cart_yes table .check{
+.cart_yes table .check,.noCheck{
 	float: left;
 	display: inline-block;
 	width: 20px;
@@ -250,7 +250,8 @@ body{
 	padding: 10px 0 0 10px;
 }
 .settlement_left input{
-	vertical-align: text-bottom;
+	/*vertical-align: text-bottom;*/
+	vertical-align: middle;
 }
 .cart_yes_settlement .settlement_center{
 	width: 20%;

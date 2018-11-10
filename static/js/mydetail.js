@@ -20,17 +20,28 @@ $(function () {
     $('.btn2').click(function () {
         var goodsid = $(this).attr('goodsid')
         var id = $(this).attr('number')
+        var value = $('.goodnum').attr('value')
         var $that = $(this)
-        $.get('/addcart/',{'goodsid':goodsid},function (response) {
-            console.log(response)
+        $.get('/addcart/',{'goodsid':goodsid,'value':value},function (response) {
             if (response.status == -1) {
                 alert('请登陆')
                 window.open('/entry/', target='_self')
             } else if (response.status == 1) {
-                var value = response.number
                 $('.goodnum').attr('value',value)
                 window.open('/detail.html/'+id, target='_self')
             }
         })
     })
+
+    $('#logo_right').click(function () {
+        $.get('/islogin/',function (response) {
+            if (response.status == 1){
+                window.open('/cart/', target='_self')
+            } else if (response.status == -1) {
+                alert('请登陆')
+                window.open('/entry/', target='_self')
+            }
+        })
+    })
+
 })

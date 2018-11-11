@@ -1,267 +1,286 @@
 {% load static %}
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="UTF-8">
-		<title>购物车</title>
-		<link rel="shortcut icon" href="{% static '/img/title.ico' %}"/>
-		<link rel="stylesheet" type="text/css" href="{% static '/css/cart.css' %}"/>
-		<script src="{% static '/js/jquery-1.12.0.js' %}"></script>
-		<script src="{% static '/js/jquery.cookie.js' %}"></script>
-{#		<script src="{% static '/js/cart.js' %}"></script>#}
-        <script src="{% static '/js/mycart.js' %}"></script>
+<head>
+    <meta charset="UTF-8">
+    <title>购物车</title>
+    <link rel="shortcut icon" href="{% static '/img/title.ico' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static '/css/cart.css' %}"/>
+    <script src="{% static '/js/jquery-1.12.0.js' %}"></script>
+    <script src="{% static '/js/jquery.cookie.js' %}"></script>
+    {#		<script src="{% static '/js/cart.js' %}"></script>#}
+    <script src="{% static '/js/mycart.js' %}"></script>
 
-	</head>
-	<body>
-        <div id="top">
-			<div id="top_left">
-				<img src="{% static '/img/ind-tel.png' %}">
-				<span>电话热线<b>400-630-0077</b></span>
-			</div>
-			<div id="top_center">
-				{% if username %}
-                    <span>您好,{{ username }} <a href="{% url 'App:logout' %}"> [退出]</a></span>
-                {% else %}
-				    <a href="{% url 'App:entry' %}">[登录]</a>
-				    <a href="{% url 'App:register' %}">[免费注册]</a>
-                {% endif %}
-			</div>
-		<ul id="top_right">
-				<a href="#"><li>我的嘉</li></a>
-				<a href="#"><li>我的订单</li></a>
-				<a href="#"><li>客户服务</li></a>
-				<a href="#"><li>电视会员激活</li></a>
-				<a href="#"><li>
-					<img src="{% static '/img/ind-mobile.png' %}">
-					<span>手机嘉丽购</span>
-				</li></a>
-			</ul>
-		</div>
-		<div id="logo">
-			<div id="logo_left">
-				<a href="{% url 'App:index' %}"><img src="{% static '/img/ladygood.png' %}"></a>
-			</div>
-			<div id="logo_center">购物车</div>
-			<div id="logo_right">
-				<ul>
-					<li>
-						<span style="background: #e81355;"></span>
-						<div></div>
-						<label>我的购物车</label>
-					</li>
-					<li>
-						<span></span>
-						<div></div>
-						<label>提交订单</label>
-					</li>
-					<li>
-						<span></span>
-						<div></div>
-						<label>等待付款</label>
-					</li>
-					<li>
-						<span></span>
-						<div></div>
-						<label>支付成功</label>
-					</li>
-				</ul>
-			</div>
-		</div>
-		<div id="cart">
-			<div class="cart_top">
-				<span>全部商品</span>
-				<a href="{% url 'App:index' %}">返回首页</a>
-			</div>
-			<div class="cart_yes">
-				<table>
-					<thead>
-						<tr>
-							<th>全选</th>
-							<th>商品名</th>
-							<th>单价（元）</th>
-							<th>数量</th>
-							<th>嘉丽价</th>
-							<th>操作</th>
-						</tr>
-					</thead>
-					<tbody>
-                        {% for cart in carts %}
-                            <tr class="goods">
-
-
-                                <td class="td1" isselect="{{ cart.isselect }}">
-                                    {% if cart.isselect %}
-                                        <span class="check ok"  cartid="{{ cart.id }}">√</span>
-                                    {% else %}
-                                        <span class="noCheck ok"  cartid="{{ cart.id }}">√</span>
-                                    {% endif %}
-                                    <img src="{{ cart.goods.img }}" alt="" id="5" style="cursor: pointer;">
-
-                                </td>
-
-
-
-                                <td class="td1">
-                                    <a href="#">
-                                        <h5>{{ cart.goods.descibe }}</h5>
-                                    </a>
-                                    <span>{{ cart.goods.number }}</span>
-                                    <span class="youHui">
+</head>
+<body>
+<div id="top">
+    <div id="top_left">
+        <img src="{% static '/img/ind-tel.png' %}">
+        <span>电话热线<b>400-630-0077</b></span>
+    </div>
+    <div id="top_center">
+        {% if username %}
+            <span>您好,{{ username }} <a href="{% url 'App:logout' %}"> [退出]</a></span>
+        {% else %}
+            <a href="{% url 'App:entry' %}">[登录]</a>
+            <a href="{% url 'App:register' %}">[免费注册]</a>
+        {% endif %}
+    </div>
+    <ul id="top_right">
+        <a href="#">
+            <li>我的嘉</li>
+        </a>
+        <a href="#">
+            <li>我的订单</li>
+        </a>
+        <a href="#">
+            <li>客户服务</li>
+        </a>
+        <a href="#">
+            <li>电视会员激活</li>
+        </a>
+        <a href="#">
+            <li>
+                <img src="{% static '/img/ind-mobile.png' %}">
+                <span>手机嘉丽购</span>
+            </li>
+        </a>
+    </ul>
+</div>
+<div id="logo">
+    <div id="logo_left">
+        <a href="{% url 'App:index' %}"><img src="{% static '/img/ladygood.png' %}"></a>
+    </div>
+    <div id="logo_center">购物车</div>
+    <div id="logo_right">
+        <ul>
+            <li>
+                <span style="background: #e81355;"></span>
+                <div></div>
+                <label>我的购物车</label>
+            </li>
+            <li>
+                <span></span>
+                <div></div>
+                <label>提交订单</label>
+            </li>
+            <li>
+                <span></span>
+                <div></div>
+                <label>等待付款</label>
+            </li>
+            <li>
+                <span></span>
+                <div></div>
+                <label>支付成功</label>
+            </li>
+        </ul>
+    </div>
+</div>
+<div id="cart">
+    <div class="cart_top">
+        <span>全部商品</span>
+        <a href="{% url 'App:index' %}">返回首页</a>
+    </div>
+    <div class="cart_yes">
+        <table>
+            <thead>
+            <tr>
+                <th>全选</th>
+                <th>商品名</th>
+                <th>单价（元）</th>
+                <th>数量</th>
+                <th>嘉丽价</th>
+                <th>操作</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for cart in carts %}
+                <tr class="goods">
+                    <td class="td1" isselect="{{ cart.isselect }}">
+                        {% if cart.isselect %}
+                            <span class="check ok" cartid="{{ cart.id }}">√</span>
+                        {% else %}
+                            <span class="noCheck ok" cartid="{{ cart.id }}">√</span>
+                        {% endif %}
+                        <img src="{{ cart.goods.img }}" alt="" id="5" style="cursor: pointer;">
+                    </td>
+                    <td class="td1">
+                        <a href="#">
+                            <h5>{{ cart.goods.descibe }}</h5>
+                        </a>
+                        <span>{{ cart.goods.number }}</span>
+                        <span class="youHui">
                                         减
                                     </span>
-                                    <span class="TV">
+                        <span class="TV">
                                         TV
                                     </span>
-                                    <p style="color: rgb(235, 22, 86);">
-                                        {{ cart.goods.youHui }}
-                                    </p>
-                                </td>
-
-
-                                <td class="td2" price="{{ cart.goods.price }}">¥{{ cart.goods.price }}</td>
-
-
-                                <td class="td2 num">
-                                    <div class="minus" goodsid="{{ cart.goods.num }}">-</div>
-                                    <input type="text" readonly="readonly" class="goodnum" value="{{ cart.number }}">
-                                    <div class="plus" goodsid="{{ cart.goods.num }}">+</div>
-
-
-
-
-                                </td>
-                                <td class="td2 cart_price" jl_price="{{ cart.goods.price }}"></td>
-                                <td class="td2">
-                                    <p>
-                                        <a href="#">加入收藏夹</a>
-                                    </p>
-                                    <p>
-                                        <a href="#" class="del" goodsid="{{ cart.goods.num }}">删除</a>
-                                    </p>
-                                </td>
-                            </tr>
-                        {% endfor %}
-
-                    </tbody>
-				</table>
-				<div class="cart_yes_settlement">
-
-
-
-					<div class="settlement_left">
+                        <p style="color: rgb(235, 22, 86);">
+                            {{ cart.goods.youHui }}
+                        </p>
+                    </td>
+                    <td class="td2" price="{{ cart.goods.price }}">¥{{ cart.goods.price }}</td>
+                    <td class="td2 num">
+                        <div class="minus" goodsid="{{ cart.goods.num }}">-</div>
+                        <input type="text" readonly="readonly" class="goodnum" value="{{ cart.number }}">
+                        <div class="plus" goodsid="{{ cart.goods.num }}">+</div>
+                    </td>
+                    <td class="td2 cart_price" jl_price="{{ cart.goods.price }}"></td>
+                    <td class="td2">
+                        <p>
+                            <a href="#">加入收藏夹</a>
+                        </p>
+                        <p>
+                            <a href="#" class="del" goodsid="{{ cart.goods.num }}">删除</a>
+                        </p>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        <div class="cart_yes_settlement">
+            <div class="settlement_left">
 						<span>
 							<input type="checkbox" style="outline: none;" id="checked" isselect="false">
 							<label for="checked" style="margin-left: -5px;">全选</label>
 						</span>
-					</div>
-
-
-
-					<div class="settlement_center">
-						<p>商品金额：<span class="jinE"></span>元</p>
-						<p>运费：<span class="yunFei">10.00</span>元</p>
-						<p>可返积分：<span class="jiFen">512</span></p>
-						<p style="color: #e21357; font-weight: bold;">总计：<span class="zje"></span>元</p>
-					</div>
-
-
-
-					<div class="settlement_right">
-						<input type="button" value="去结算">
-					</div>
-				</div>
-			</div>
-		</div>
-		<div id="GYLike">
-			<span>猜你喜欢</span>
-			<div class="GYLike_all">
-                <div class="GYLike_one">
-                    <img src="{{ ind1.src }}" alt="">
-                    <a href="{% url 'App:detail' ind1.salesVolume %}"><p class="GYLike_describe describe">{{ ind1.describe }}</p></a>
-                    <p class="GYLike_price">{{ ind1.price }}</p>
-                </div>
-                <div class="GYLike_one">
-                    <img src="{{ ind2.src }}" alt="">
-                    <a href="{% url 'App:detail' ind2.salesVolume %}"><p class="GYLike_describe describe">{{ ind2.describe }}</p></a>
-                    <p class="GYLike_price">{{ ind2.price }}</p>
-                </div>
-                <div class="GYLike_one">
-                    <img src="{{ ind3.src }}" alt="">
-                    <a href="{% url 'App:detail' ind3.salesVolume %}"><p class="GYLike_describe describe">{{ ind3.describe }}</p></a>
-                    <p class="GYLike_price">{{ ind3.price }}</p>
-                </div>
-                <div class="GYLike_one">
-                    <img src="{{ ind4.src }}" alt="">
-                    <a href="{% url 'App:detail' ind4.salesVolume %}"><p class="GYLike_describe describe">{{ ind4.describe }}</p></a>
-                    <p class="GYLike_price">{{ ind4.price }}</p>
-                </div>
-                <div class="GYLike_one">
-                    <img src="{{ ind5.src }}" alt="">
-                    <a href="{% url 'App:detail' ind5.salesVolume %}"><p class="GYLike_describe describe">{{ ind5.describe }}</p></a>
-                    <p class="GYLike_price">{{ ind5.price }}</p>
-                </div>
             </div>
-		</div>
-		<div id="service">
-			<div class="service_top"></div>
-			<div class="service_bottom">
-				<div class="QRCode"></div>
-				<div class="service_list">
-					<dl>
-						<dt>购物指南</dt>
-						<a href="#"><dd>新用户注册/激活</dd></a>
-						<a href="#"><dd>如何订购</dd></a>
-						<a href="#"><dd>常见问题</dd></a>
-					</dl>
-					<dl>
-						<dt>会员中心</dt>
-						<a href="#"><dd>会员权益</dd></a>
-						<a href="#"><dd>美丽积分</dd></a>
-						<a href="#"><dd>订单查询</dd></a>
-						<a href="#"><dd>找回密码</dd></a>
-					</dl>
-					<dl>
-						<dt>配送服务</dt>
-						<a href="#"><dd>物流跟踪</dd></a>
-						<a href="#"><dd>免运费政策</dd></a>
-					</dl>
-					<dl>
-						<dt>支付说明</dt>
-						<a href="#"><dd>货到付款</dd></a>
-						<a href="#"><dd>在线支付</dd></a>
-					</dl>
-					<dl>
-						<dt>售后服务</dt>
-						<a href="#"><dd>退换货政策</dd></a>
-						<a href="#"><dd>退换货流程</dd></a>
-						<a href="#"><dd>安全与保密</dd></a>
-					</dl>
-				</div>
-				<div class="telephone"></div>
-			</div>
-		</div>
-		<div id="bottom">
-			<ul class="bottom_link">
-				<li><a href="#">商城首页</a></li>
-				<li><a href="#">官网首页</a></li>
-				<li><a href="#">供应商登录</a></li>
-				<li><a href="#">供货联系</a></li>
-				<li><a href="#">收藏我们</a></li>
-				<li><a href="#">公司简介</a></li>
-				<li><a href="#">媒体报道</a></li>
-				<li><a href="#">嘉丽购招聘</a></li>
-				<li><a href="#">官方微博</a></li>
-				<li style="border-right: none;"><a href="#">合作网站：范游网</a></li>
-			</ul>
-			<p>嘉丽购物有限责任公司 Copyright 2010-2014 jialigou.All Rights Reserved</p>
-			<p>国家广电总局批号：广局[2010] 278号湘ICP备10203162号-3</p>
-			<a href="#"><img src="{% static '/img/pic.gif' %}" title="站长统计" class="pic"></a>
-			<ul class="bottom_security">
-				<li class="first"><img src="{% static '/img/kx.jpg' %}"></li>
-				<li><a href="#"><img src="{% static '/img/360.jpg' %}"></a></li>
-				<li><img src="{% static '/img/alipay_s.gif' %}"></li>
-				<li><a href="#"><img src="{% static '/img/hn110_s.gif' %}"></a></li>
-			</ul>
-		</div>
-    </body>
+            <div class="settlement_center">
+                <p>商品金额：<span class="jinE"></span>元</p>
+                <p>运费：<span class="yunFei">10.00</span>元</p>
+                <p>可返积分：<span class="jiFen">512</span></p>
+                <p style="color: #e21357; font-weight: bold;">总计：<span class="zje"></span>元</p>
+            </div>
+            <div class="settlement_right">
+                <input type="button" value="去结算">
+            </div>
+        </div>
+    </div>
+</div>
+<div id="GYLike">
+    <span>猜你喜欢</span>
+    <div class="GYLike_all">
+        <div class="GYLike_one">
+            <img src="{{ ind1.src }}" alt="">
+            <a href="{% url 'App:detail' ind1.salesVolume %}"><p
+                    class="GYLike_describe describe">{{ ind1.describe }}</p></a>
+            <p class="GYLike_price">{{ ind1.price }}</p>
+        </div>
+        <div class="GYLike_one">
+            <img src="{{ ind2.src }}" alt="">
+            <a href="{% url 'App:detail' ind2.salesVolume %}"><p
+                    class="GYLike_describe describe">{{ ind2.describe }}</p></a>
+            <p class="GYLike_price">{{ ind2.price }}</p>
+        </div>
+        <div class="GYLike_one">
+            <img src="{{ ind3.src }}" alt="">
+            <a href="{% url 'App:detail' ind3.salesVolume %}"><p
+                    class="GYLike_describe describe">{{ ind3.describe }}</p></a>
+            <p class="GYLike_price">{{ ind3.price }}</p>
+        </div>
+        <div class="GYLike_one">
+            <img src="{{ ind4.src }}" alt="">
+            <a href="{% url 'App:detail' ind4.salesVolume %}"><p
+                    class="GYLike_describe describe">{{ ind4.describe }}</p></a>
+            <p class="GYLike_price">{{ ind4.price }}</p>
+        </div>
+        <div class="GYLike_one">
+            <img src="{{ ind5.src }}" alt="">
+            <a href="{% url 'App:detail' ind5.salesVolume %}"><p
+                    class="GYLike_describe describe">{{ ind5.describe }}</p></a>
+            <p class="GYLike_price">{{ ind5.price }}</p>
+        </div>
+    </div>
+</div>
+<div id="service">
+    <div class="service_top"></div>
+    <div class="service_bottom">
+        <div class="QRCode"></div>
+        <div class="service_list">
+            <dl>
+                <dt>购物指南</dt>
+                <a href="#">
+                    <dd>新用户注册/激活</dd>
+                </a>
+                <a href="#">
+                    <dd>如何订购</dd>
+                </a>
+                <a href="#">
+                    <dd>常见问题</dd>
+                </a>
+            </dl>
+            <dl>
+                <dt>会员中心</dt>
+                <a href="#">
+                    <dd>会员权益</dd>
+                </a>
+                <a href="#">
+                    <dd>美丽积分</dd>
+                </a>
+                <a href="#">
+                    <dd>订单查询</dd>
+                </a>
+                <a href="#">
+                    <dd>找回密码</dd>
+                </a>
+            </dl>
+            <dl>
+                <dt>配送服务</dt>
+                <a href="#">
+                    <dd>物流跟踪</dd>
+                </a>
+                <a href="#">
+                    <dd>免运费政策</dd>
+                </a>
+            </dl>
+            <dl>
+                <dt>支付说明</dt>
+                <a href="#">
+                    <dd>货到付款</dd>
+                </a>
+                <a href="#">
+                    <dd>在线支付</dd>
+                </a>
+            </dl>
+            <dl>
+                <dt>售后服务</dt>
+                <a href="#">
+                    <dd>退换货政策</dd>
+                </a>
+                <a href="#">
+                    <dd>退换货流程</dd>
+                </a>
+                <a href="#">
+                    <dd>安全与保密</dd>
+                </a>
+            </dl>
+        </div>
+        <div class="telephone"></div>
+    </div>
+</div>
+<div id="bottom">
+    <ul class="bottom_link">
+        <li><a href="#">商城首页</a></li>
+        <li><a href="#">官网首页</a></li>
+        <li><a href="#">供应商登录</a></li>
+        <li><a href="#">供货联系</a></li>
+        <li><a href="#">收藏我们</a></li>
+        <li><a href="#">公司简介</a></li>
+        <li><a href="#">媒体报道</a></li>
+        <li><a href="#">嘉丽购招聘</a></li>
+        <li><a href="#">官方微博</a></li>
+        <li style="border-right: none;"><a href="#">合作网站：范游网</a></li>
+    </ul>
+    <p>嘉丽购物有限责任公司 Copyright 2010-2014 jialigou.All Rights Reserved</p>
+    <p>国家广电总局批号：广局[2010] 278号湘ICP备10203162号-3</p>
+    <a href="#"><img src="{% static '/img/pic.gif' %}" title="站长统计" class="pic"></a>
+    <ul class="bottom_security">
+        <li class="first"><img src="{% static '/img/kx.jpg' %}"></li>
+        <li><a href="#"><img src="{% static '/img/360.jpg' %}"></a></li>
+        <li><img src="{% static '/img/alipay_s.gif' %}"></li>
+        <li><a href="#"><img src="{% static '/img/hn110_s.gif' %}"></a></li>
+    </ul>
+</div>
+</body>
 </html>

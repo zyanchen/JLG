@@ -55,13 +55,6 @@ $(function () {
     })
 
 
-    // $(".settlement_left input").click(function(){
-    //     if($(this)[0].checked){
-    //         $(".td1 .check").removeClass("noCheck");
-    //     }else{
-    //         $(".td1 .check").addClass("noCheck");
-    //     }
-    // });
 
     $('#checked').click(function () {
         var isselect = $(this).attr('isselect')
@@ -90,6 +83,7 @@ $(function () {
         $.get('/delgoods/', {'goodsid': goodsid}, function (response) {
             if (response.status == 1) {
                 alert('删除成功')
+                total()
                 window.open('/cart/', target = '_self')
             }
         })
@@ -111,5 +105,19 @@ $(function () {
         $('.settlement_center .jinE').html(parseInt(sum))
         $('.settlement_center .zje').html(parseInt(sum))
     }
+
+
+    $('.settlement_right').click(function () {
+        $.get('/generateorder/', function (response) {
+            console.log(response)
+            if (response.status == 1){
+                window.open('/orderinfo/'+response.identifier +
+                '/', target='_self')
+                console.log('/orderinfo/'+response.identifier +
+                '/')
+            }
+        })
+    })
+
 
 })

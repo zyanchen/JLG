@@ -8,7 +8,7 @@ from django.http import HttpResponse, JsonResponse
 from django.shortcuts import render, redirect
 
 # Create your views here.
-from App.models import User, Index_Img, detail_json, Cart
+from App.models import User, Index_Img, detail_json, Cart, Order, OrderGoods
 
 
 # 首页
@@ -363,3 +363,34 @@ def changecartselect(request):
         cart.isselect = isselect
         cart.save()
     return JsonResponse({'msg': '反选操作成功', 'status': 1, 'isselect':isselect})
+
+
+def generateorder(request):
+    token = request.COOKIES.get('token')
+    user = User.objects.get(token=token)
+    order = Order()
+    order.user = user
+    order.identifier = str(int(time.time())) + str(random.randrange(10000, 100000))
+    order.save()
+    carts = Cart.objects.filter(user=user).filter(isselect=True)
+    for cart in carts:
+        orderGoods = OrderGoods()
+        orderGoods.order = order
+        orderGoods.goods = cart.goods
+        orderGoods.number = cart.number
+        orderGoods.save()
+        cart.delete()
+    responseData = {
+        'msg': '订单生成成功',
+        'status': 1,
+        'identifier': order.identifier
+    }
+    return JsonResponse(responseData)
+
+
+def orderinfo(request, identifier):
+    token = request.COOKIES.get('token')
+    users = User.objects.filter(token=token)
+    user = users.first()
+    order = Order.objects.get(identifier=identifier)
+    return render(request, 'orderinfo.html', context={'order':order,'username':user.username,'identifier':identifier})

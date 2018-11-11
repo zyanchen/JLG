@@ -28,6 +28,7 @@ $(function () {
                 window.open('/entry/', target='_self')
             } else if (response.status == 1) {
                 $('.goodnum').attr('value',value)
+                alert('添加购物车成功')
                 window.open('/detail.html/'+id, target='_self')
             }
         })

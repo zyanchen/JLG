@@ -7,7 +7,7 @@ urlpatterns = [
     url(r'^cart/$', views.cart,name='cart'),
     url(r'^entry/$', views.entry,name='entry'),
     url(r'^logout/$', views.logout,name='logout'),
-    url(r'^detail.html/(\d+)$', views.detail,name='detail'),
+    url(r'^detail.html/(\d+)$', views.detail, name='detail'),
     url(r'^register/$', views.register,name='register'),
     url(r'^getjson/$', views.getjson),
     url(r'^addcart/$', views.addcart, name='addcart'),
@@ -17,4 +17,9 @@ urlpatterns = [
     url(r'^delgoods/$', views.delgoods, name='delgoods'),
     url(r'^changecartstatus/$', views.changecartstatus, name='changecartstatus'),
     url(r'^changecartselect/$', views.changecartselect, name='changecartselect'),
+    url(r'^generateorder/$', views.generateorder, name='generateorder'),
+    url(r'^orderinfo/(\d+)/$', views.orderinfo, name='orderinfo'),
+
+
+
 ]

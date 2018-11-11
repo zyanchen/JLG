@@ -37,3 +37,15 @@ class Cart(models.Model):
     number = models.IntegerField()
     isselect = models.BooleanField(default=True)
 
+
+class Order(models.Model):
+    user = models.ForeignKey(User)
+    createtime = models.DateTimeField(auto_now_add=True)
+    status = models.IntegerField(default=1)
+    identifier = models.CharField(max_length=256)
+
+
+class OrderGoods(models.Model):
+    order = models.ForeignKey(Order)
+    goods = models.ForeignKey(detail_json)
+    number = models.IntegerField(default=1)
